@@ -1,4 +1,4 @@
-Test App for <a href="https://github.com/ianharrigan/haxeui">HaxeUI</a>
+Test application for <a href="https://github.com/ianharrigan/haxeui">HaxeUI</a>
 ================================
 
 <img src="https://raw.github.com/ianharrigan/haxeui-test-app/master/docs/screenshots/main.jpg" />
