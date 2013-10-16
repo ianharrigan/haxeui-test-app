@@ -258,6 +258,7 @@
 				<ui:button text="Custom Popup" id="showCustomPopup" />
 				<ui:button text="List Popup" id="showListPopup" />
 				<ui:button text="Calendar Popup" id="showCalendarPopup" />
+				<ui:button text="Busy Popup" id="showBusyPopup" />
 			</ui:hbox>
 			<ui:hbox>
 				<selection:list text="Select Item 1">
