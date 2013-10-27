@@ -2,6 +2,7 @@ package haxe.ui.test;
 
 import flash.events.Event;
 import flash.events.MouseEvent;
+import flash.events.ProgressEvent;
 import haxe.ui.toolkit.events.ListViewEvent;
 import haxe.ui.toolkit.events.MenuEvent;
 import haxe.ui.toolkit.containers.Accordion;
@@ -28,6 +29,8 @@ import haxe.ui.toolkit.resources.ResourceManager;
 import haxe.ui.toolkit.controls.Progress;
 import haxe.ui.toolkit.style.DefaultStyles;
 import haxe.ui.toolkit.style.StyleManager;
+import haxe.ui.toolkit.util.psuedothreads.AsyncThreadCaller;
+import haxe.ui.toolkit.util.psuedothreads.Runner;
 
 class TestController extends XMLController {
 	public function new() {
@@ -253,6 +256,66 @@ class TestController extends XMLController {
 				getComponentAs("code", Code).async = getComponentAs("codeAsync", CheckBox).selected;
 			});
 		}
+		
+		{
+			_callers = new Map<ListViewItem, AsyncThreadCaller>();
+			attachEvent("createRunner", MouseEvent.CLICK, _createRunner);
+			attachEvent("runnerList", ListViewEvent.COMPONENT_EVENT, function(e:ListViewEvent) {
+				var list:ListView = getComponentAs("runnerList", ListView);
+				var listItem:ListViewItem = e.item;
+				var caller:AsyncThreadCaller = cast(_callers.get(listItem) , AsyncThreadCaller);
+				caller.cancel();
+				var index:Int = list.getItemIndex(listItem);
+				var n:Int = 0;
+				if (list.dataSource.moveFirst()) {
+					do {
+						if (n == index) {
+							list.dataSource.remove();
+							break;
+						}
+						n++;
+					} while (list.dataSource.moveNext());
+				}
+			});
+		}
 	}
 	
+	private var _callers:Map<ListViewItem, AsyncThreadCaller>;
+	private function _createRunner(e:Event):Void {
+		var list:ListView = getComponentAs("runnerList", ListView);
+		var name:String = "Runner_" + list.listSize;
+		list.dataSource.add( { text: name + ": 0", type: "button", value: "Cancel"  } );
+		var item:ListViewItem = list.getItem(list.listSize - 1);
+		
+		var runner:DemoRunner = new DemoRunner(name, item, Std.parseFloat(getComponent("runnnerTimeshare").text));
+		var caller:AsyncThreadCaller = new AsyncThreadCaller(runner);
+		caller.addEventListener(ProgressEvent.PROGRESS, _onRunnerProgress);
+		_callers.set(item, caller);
+		caller.start();
+	}
+	
+	private function _onRunnerProgress(event:ProgressEvent):Void {
+		var caller:AsyncThreadCaller = cast(event.target, AsyncThreadCaller);
+		var runner:DemoRunner = cast(caller.worker, DemoRunner);
+		runner.listItem.text = runner.name + ": " + runner.counter;
+	}
+}
+
+private class DemoRunner extends Runner {
+	public var counter:Int = 0;
+	public var name:String;
+	public var listItem:ListViewItem;
+	public function new(name:String, listItem:ListViewItem, timeshare:Float = .1):Void {
+		super();
+		this.name = name;
+		this.listItem = listItem;
+		_runningTimeShare = timeshare;
+	}
+	
+	public override function run() {
+		while (_needToExit() == false) {
+			counter++;
+			//trace(_counter);
+		}
+	}
 }

@@ -496,6 +496,15 @@
 			<ui:code id="code" width="100%" height="100%" syntax="haxe" text="asset://data/code.txt" />
 		</ui:vbox>
 
+		<ui:vbox text="Psuedo Threads" width="100%" height="100%">
+			<ui:hbox>
+				<ui:button text="Create Runner" id="createRunner" />
+				<ui:text text="Timeshare (0 - 1):" />
+				<ui:textinput text=".001"  id="runnnerTimeshare" />
+			</ui:hbox>
+			<ui:listview id="runnerList" width="100%" height="100%" />
+		</ui:vbox>
+		
 		
 		<ui:vbox text="Tab 1" />
 		<ui:vbox text="Tab 2" />
