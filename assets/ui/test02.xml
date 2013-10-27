@@ -505,6 +505,14 @@
 			<ui:listview id="runnerList" width="100%" height="100%" />
 		</ui:vbox>
 		
+		<ui:vbox text="Test" width="100%" height="100%">
+			<ui:hbox>
+				<ui:image resource="img/slinky_small.jpg" id="image1" stretch="true" />
+				<ui:image resource="img/slinky_small.jpg" id="image2" />
+			</ui:hbox>
+			<ui:button text="Original" id="resizeOrg" />
+			<ui:button text="Resize" id="resizeBigger" />
+		</ui:vbox>
 		
 		<ui:vbox text="Tab 1" />
 		<ui:vbox text="Tab 2" />

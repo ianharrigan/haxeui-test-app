@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ui:vbox>
-	
-</ui:vbox>
+<ui:menu id="menu1">
+	<style:css>
+		#menu1 {
+			padding: 100;
+			width: 500;
+			backgroundColor: 0xFF0000;
+		}
+	</style:css>
+	<ui:menuitem text="Item 1" />
+	<ui:menuitem text="Item 2" />
+</ui:menu>

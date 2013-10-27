@@ -278,6 +278,21 @@ class TestController extends XMLController {
 				}
 			});
 		}
+		
+		{
+			attachEvent("resizeOrg", MouseEvent.CLICK, function(e) {
+				getComponent("image1").width = 165;
+				getComponent("image1").height = 124;
+				getComponent("image2").width = 165;
+				getComponent("image2").height = 124;
+			});
+			attachEvent("resizeBigger", MouseEvent.CLICK, function(e) {
+				getComponent("image1").width = 165 * 2;
+				getComponent("image1").height = 124 * 2;
+				getComponent("image2").width = 165 * 2;
+				getComponent("image2").height = 124 * 2;
+			});
+		}
 	}
 	
 	private var _callers:Map<ListViewItem, AsyncThreadCaller>;
