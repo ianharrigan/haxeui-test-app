@@ -310,6 +310,20 @@
 			</ui:hbox>
 		</ui:vbox>
 		
+		<ui:grid width="100%" height="100%" columns="3" text="Grid Layout">
+			<ui:button text="B/R" horizontalAlign="right" verticalAlign="bottom"/>
+			<ui:button text="50% / center" width="50%" horizontalAlign="center" />
+			<ui:button text="100x100" width="100" height="100" />
+
+			<ui:button text="75% / top" height="75%" verticalAlign="top" />
+			<ui:button text="100% x 100%" width="100%" height="100%" />
+			<ui:button text="25% / bottom" height="25%" verticalAlign="bottom" />
+			
+			<ui:button text="7" />
+			<ui:button text="30% / right" width="30%" horizontalAlign="right" />
+			<ui:button text="9" />
+		</ui:grid>
+
 		<ui:vbox text="Scrolls">
 			<ui:hbox>
 				<ui:vscroll />

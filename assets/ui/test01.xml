@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ui:menu id="menu1">
-	<style:css>
-		#menu1 {
-			padding: 100;
-			width: 500;
-			backgroundColor: 0xFF0000;
-		}
-	</style:css>
-	<ui:menuitem text="Item 1" />
-	<ui:menuitem text="Item 2" />
-</ui:menu>
+<ui:grid width="100%" height="100%" columns="3">
+	<ui:button text="1" />
+	<ui:button text="50% / center" width="50%" horizontalAlign="center" />
+	<ui:button text="100x100" width="100" height="100" />
+
+	<ui:button text="75% / top" height="75%" verticalAlign="top" />
+	<ui:button text="5" width="100%" height="100%" />
+	<ui:button text="25% / bottom" height="25%" verticalAlign="bottom" />
+	
+	<ui:button text="7" />
+	<ui:button text="30% / right" width="30%" horizontalAlign="right" />
+	<ui:button text="9" />
+</ui:grid>

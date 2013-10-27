@@ -5,6 +5,7 @@ import flash.events.MouseEvent;
 import flash.events.ProgressEvent;
 import haxe.ui.toolkit.events.ListViewEvent;
 import haxe.ui.toolkit.events.MenuEvent;
+import haxe.ui.toolkit.events.UIEvent;
 import haxe.ui.toolkit.containers.Accordion;
 import haxe.ui.toolkit.containers.ListView;
 import haxe.ui.toolkit.containers.Stack;
@@ -46,24 +47,10 @@ class TestController extends XMLController {
 			var mainTabs:TabView = getComponentAs("mainTabs", TabView);
 			mainTabs.selectedIndex = 3;
 		});
-		
-		attachEvent("perfButton", MouseEvent.CLICK, function(e) {
-			trace("perf");
-			var b:Button = getComponentAs("perfButton", Button);
-			b.text = "bbbbbbbbbbbbbbbbbbbbbb";
-			var mainTabs:TabView = getComponentAs("mainTabs", TabView);
-			mainTabs.setTabText(0, "xxxxxxxxxxxxxxxxxxxxxxxxxxx");
-			//mainTabs.invalidate();
-			mainTabs.selectedIndex = 2;
-			/*
-			var b:Button = getComponentAs("perfButton", Button);
-			for (x in 0...354) {
-			}
-			
-			StyleManager.instance.dump();
-			
-			*/
-			StyleManager.instance.dump();
+
+		attachEvent("perfButton", UIEvent.MOUSE_DOWN, function(e:UIEvent) {
+			trace(e.displayObject);
+			trace("ui click");
 		});
 		
 		attachEvent("showSimplePopup", MouseEvent.CLICK, function(e) {
