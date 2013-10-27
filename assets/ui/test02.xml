@@ -310,6 +310,20 @@
 			</ui:hbox>
 		</ui:vbox>
 		
+		<ui:vbox width="100%" height="100%" text="Layouts">
+			<ui:hbox width="100%">
+				<ui:button text="Top" verticalAlign="top" />
+				<ui:button text="100 x 100" width="100" height="100" />
+				<ui:button text="Bottom" verticalAlign="bottom" />
+			</ui:hbox>
+			
+			<ui:vbox>
+				<ui:button text="Right" horizontalAlign="right" />
+				<ui:button text="100 x 100" width="100" height="100"/>
+				<ui:button text="Center" horizontalAlign="center" />
+			</ui:vbox>
+		</ui:vbox>
+		
 		<ui:grid width="100%" height="100%" columns="3" text="Grid Layout">
 			<ui:button text="B/R" horizontalAlign="right" verticalAlign="bottom"/>
 			<ui:button text="50% / center" width="50%" horizontalAlign="center" />
@@ -513,7 +527,7 @@
 		<ui:vbox text="Psuedo Threads" width="100%" height="100%">
 			<ui:hbox>
 				<ui:button text="Create Runner" id="createRunner" />
-				<ui:text text="Timeshare (0 - 1):" />
+				<ui:text text="Timeshare (0 - 1):" verticalAlign="center" />
 				<ui:textinput text=".001"  id="runnnerTimeshare" />
 			</ui:hbox>
 			<ui:listview id="runnerList" width="100%" height="100%" />
