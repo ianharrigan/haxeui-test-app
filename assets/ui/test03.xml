@@ -1,4 +1,4 @@
-		<ui:listview width="50%" height="200" id="theList">
+		<ui:listview width="50%" height="200" id="theList" xmlns:ui="haxeui::ui" xmlns:data="haxeui::data">
 			<data:json>
 				[
 					{"text": "Item 1"}

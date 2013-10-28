@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ui:grid width="100%" columns="2" id="myCustomPopup">
+<ui:grid width="100%" columns="2" id="myCustomPopup" xmlns:ui="haxeui::ui"  xmlns:style="haxeui::style">
 	<style:css>
 		#222myCustomPopup {
 			spacingY: 0;

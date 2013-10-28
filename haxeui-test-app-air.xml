@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<application xmlns="http://ns.adobe.com/air/application/3.9"> 
+    <id>org.haxeui.testapp</id> 
+    <versionNumber>0.1</versionNumber> 
+    <filename>haxeuitestapp</filename> 
+    <initialWindow> 
+        <content>haxeuitestapp.swf</content> 
+        <visible>true</visible> 
+        <width>800</width> 
+        <height>600</height> 
+    </initialWindow> 
+</application>

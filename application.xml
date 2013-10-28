@@ -19,7 +19,7 @@
 	<haxelib name="haxeui" />
 	
 	<!-- assets -->
-	<icon path="assets/openfl.svg" />
+	<icon path="assets/application-default-icon.svg" />
 	<assets path="assets/img" rename="img" />
 	
 	<assets path="assets/ui" rename="ui" exclude="*.xml|*.css" if="html5" />
@@ -30,4 +30,64 @@
 	<!-- optimize output -->
 	<haxeflag name="-dce std" if="haxe3" />
 	
+	<!--
+	*********************************************************************************************
+	** App specific embedded resources
+	*********************************************************************************************
+	-->
+	<haxeflag name="-resource" value="assets/data/code.txt@data/code.txt" />
+	<haxeflag name="-resource" value="assets/data/data.json@data/data.json" />
+	<haxeflag name="-resource" value="assets/data/data.txt@data/data.txt" />
+	<haxeflag name="-resource" value="assets/data/data.xml@data/data.xml" />
+	<haxeflag name="-resource" value="assets/data/rtf.txt@data/rtf.txt" />
+
+	<haxeflag name="-resource" value="assets/ui/customPopup.xml@ui/customPopup.xml" />
+	<haxeflag name="-resource" value="assets/ui/import01.xml@ui/import01.xml" />
+	<haxeflag name="-resource" value="assets/ui/import02.xml@ui/import02.xml" />
+	<haxeflag name="-resource" value="assets/ui/import03.xml@ui/import03.xml" />
+	<haxeflag name="-resource" value="assets/ui/importedDataSource.xml@ui/importedDataSource.xml" />
+	<haxeflag name="-resource" value="assets/ui/main.xml@ui/main.xml" />
+	<haxeflag name="-resource" value="assets/ui/menu.xml@ui/menu.xml" />
+	<haxeflag name="-resource" value="assets/ui/temp.xml@ui/temp.xml" />
+	<haxeflag name="-resource" value="assets/ui/test.css@ui/test.css" />
+	<haxeflag name="-resource" value="assets/ui/test01.xml@ui/test01.xml" />
+	<haxeflag name="-resource" value="assets/ui/test02.xml@ui/test02.xml" />
+	<haxeflag name="-resource" value="assets/ui/test03.xml@ui/test03.xml" />
+
+	<haxeflag name="-resource" value="assets/img/application_32.png@img/application_32.png" />
+	<haxeflag name="-resource" value="assets/img/exclamation.png@img/exclamation.png" />
+	<haxeflag name="-resource" value="assets/img/fav_16.png@img/fav_16.png" />
+	<haxeflag name="-resource" value="assets/img/fav_32.png@img/fav_32.png" />
+	<haxeflag name="-resource" value="assets/img/file_blank_32.png@img/file_blank_32.png" />
+	<haxeflag name="-resource" value="assets/img/slinky.jpg@img/slinky.jpg" />
+	<haxeflag name="-resource" value="assets/img/slinky_large.jpg@img/slinky_large.jpg" />
+	<haxeflag name="-resource" value="assets/img/slinky_small.jpg@img/slinky_small.jpg" />
+	
+	<!--
+	*********************************************************************************************
+	** HaxeUI embedded resources
+	*********************************************************************************************
+	-->
+	<haxeflag name="-resource" value="img/rtfview/edit-alignment-center.png@img/rtfview/edit-alignment-center.png" />
+	<haxeflag name="-resource" value="img/rtfview/edit-alignment-justify.png@img/rtfview/edit-alignment-justify.png" />
+	<haxeflag name="-resource" value="img/rtfview/edit-alignment-left.png@img/rtfview/edit-alignment-left.png" />
+	<haxeflag name="-resource" value="img/rtfview/edit-alignment-right.png@img/rtfview/edit-alignment-right.png" />
+	<haxeflag name="-resource" value="img/rtfview/edit-bold.png@img/rtfview/edit-bold.png" />
+	<haxeflag name="-resource" value="img/rtfview/edit-italic.png@img/rtfview/edit-italic.png" />
+	<haxeflag name="-resource" value="img/rtfview/edit-list.png@img/rtfview/edit-list.png" />
+	<haxeflag name="-resource" value="img/rtfview/edit-underline.png@img/rtfview/edit-underline.png" />
+	
+	<haxeflag name="-resource" value="styles/gradient/gradient.css@styles/gradient/gradient.css" />
+	<haxeflag name="-resource" value="styles/gradient/gradient_mobile.css@styles/gradient/gradient_mobile.css" />
+	<haxeflag name="-resource" value="styles/gradient/arrow_down.png@styles/gradient/arrow_down.png" />
+	<haxeflag name="-resource" value="styles/gradient/arrow_down_dark.png@styles/gradient/arrow_down_dark.png" />
+	<haxeflag name="-resource" value="styles/gradient/arrow_left.png@styles/gradient/arrow_left.png" />
+	<haxeflag name="-resource" value="styles/gradient/arrow_right.png@styles/gradient/arrow_right.png" />
+	<haxeflag name="-resource" value="styles/gradient/arrow_right_dark.png@styles/gradient/arrow_right_dark.png" />
+	<haxeflag name="-resource" value="styles/gradient/arrow_right2.png@styles/gradient/arrow_right2.png" />
+	<haxeflag name="-resource" value="styles/gradient/arrow_up.png@styles/gradient/arrow_up.png" />
+	<haxeflag name="-resource" value="styles/gradient/circle_dark.png@styles/gradient/circle_dark.png" />
+	<haxeflag name="-resource" value="styles/gradient/cross_dark.png@styles/gradient/cross_dark.png" />
+	<haxeflag name="-resource" value="styles/gradient/gripper_horizontal.png@styles/gradient/gripper_horizontal.png" />
+	<haxeflag name="-resource" value="styles/gradient/gripper_vertical.png@styles/gradient/gripper_vertical.png" />
 </project>

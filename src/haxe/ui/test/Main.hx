@@ -1,8 +1,12 @@
 package haxe.ui.test;
 
+import flash.display.Loader;
+import flash.utils.ByteArray;
+import haxe.io.Bytes;
 import haxe.ui.toolkit.core.Macros;
 import haxe.ui.toolkit.core.Toolkit;
 import haxe.ui.toolkit.core.Root;
+import haxe.ui.toolkit.resources.ResourceManager;
 
 class Main {
 	public static function main() {

@@ -1,4 +1,4 @@
-<data:xml resource="data/data.xml" id="importedDataSource" styleSheet="?">
+<data:xml resource="data/data.xml" id="importedDataSource" styleSheet="?" xmlns:data="haxeui::data">
 	<item text="Appended Item 1"/>
 	<item text="Appended Item 2"/>
 </data:xml>

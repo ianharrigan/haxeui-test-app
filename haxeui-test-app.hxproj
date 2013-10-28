@@ -7,28 +7,32 @@
     <movie path="application.xml" />
     <movie fps="60" />
     <movie width="800" />
-    <movie height="480" />
+    <movie height="600" />
     <movie version="3" />
     <movie minorVersion="0" />
     <movie platform="NME" />
-    <movie background="000000" />
+    <movie background="FFFFFF" />
     <movie preferredSDK=";3;" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <class path="." />
+    <class path="src" />
+    <class path="C:\tools\Haxe\haxe/lib\haxeui/1,0,1/styles" />
+    <class path="bin/flash/haxe" />
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="" />
+    <option directives="tools=1.1.2&#xA;openfl=1.1&#xA;display&#xA;web" />
     <option flashStrict="False" />
     <option mainClass="ApplicationMain" />
     <option enabledebug="True" />
-    <option additional="" />
+    <option additional="--no-output&#xA;-dce std&#xA;-resource assets/data/code.txt@data/code.txt&#xA;-resource assets/data/data.json@data/data.json&#xA;-resource assets/data/data.txt@data/data.txt&#xA;-resource assets/data/data.xml@data/data.xml&#xA;-resource assets/data/rtf.txt@data/rtf.txt&#xA;-resource assets/ui/customPopup.xml@ui/customPopup.xml&#xA;-resource assets/ui/import01.xml@ui/import01.xml&#xA;-resource assets/ui/import02.xml@ui/import02.xml&#xA;-resource assets/ui/import03.xml@ui/import03.xml&#xA;-resource assets/ui/importedDataSource.xml@ui/importedDataSource.xml&#xA;-resource assets/ui/main.xml@ui/main.xml&#xA;-resource assets/ui/menu.xml@ui/menu.xml&#xA;-resource assets/ui/temp.xml@ui/temp.xml&#xA;-resource assets/ui/test.css@ui/test.css&#xA;-resource assets/ui/test01.xml@ui/test01.xml&#xA;-resource assets/ui/test02.xml@ui/test02.xml&#xA;-resource assets/ui/test03.xml@ui/test03.xml&#xA;-resource styles/gradient/gradient.css@styles/gradient/gradient.css&#xA;-resource styles/gradient/gradient_mobile.css@styles/gradient/gradient_mobile.css&#xA;-resource styles/gradient/arrow_down.png@styles/gradient/arrow_down.png&#xA;-resource styles/gradient/arrow_down_dark.png@styles/gradient/arrow_down_dark.png&#xA;-resource styles/gradient/arrow_left.png@styles/gradient/arrow_left.png&#xA;-resource styles/gradient/arrow_right.png@styles/gradient/arrow_right.png&#xA;-resource styles/gradient/arrow_right_dark.png@styles/gradient/arrow_right_dark.png&#xA;-resource styles/gradient/arrow_right2.png@styles/gradient/arrow_right2.png&#xA;-resource styles/gradient/arrow_up.png@styles/gradient/arrow_up.png&#xA;-resource styles/gradient/circle_dark.png@styles/gradient/circle_dark.png&#xA;-resource styles/gradient/cross_dark.png@styles/gradient/cross_dark.png&#xA;-resource styles/gradient/gripper_horizontal.png@styles/gradient/gripper_horizontal.png&#xA;-resource styles/gradient/gripper_vertical.png@styles/gradient/gripper_vertical.png&#xA;-swf-version 11.2&#xA;#--remap nme:flash" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
-    <!-- example: <library name="..." /> -->
+    <library name="openfl" />
+    <library name="actuate" />
+    <library name="haxeui" />
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>

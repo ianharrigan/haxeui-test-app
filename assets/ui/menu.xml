@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ui:menu>
+<ui:menu xmlns:ui="haxeui::ui">
 	<ui:menuitem text="Item 1" id="testMenuItem1" />
 	<ui:menuitem text="Item 2" />
 	<ui:menuitem text="Item 3" />
