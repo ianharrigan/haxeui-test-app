@@ -3,6 +3,8 @@ package haxe.ui.test;
 import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.events.ProgressEvent;
+import haxe.ui.toolkit.containers.TableView;
+import haxe.ui.toolkit.core.Component;
 import haxe.ui.toolkit.events.ListViewEvent;
 import haxe.ui.toolkit.events.MenuEvent;
 import haxe.ui.toolkit.events.UIEvent;
@@ -43,14 +45,24 @@ class TestController extends XMLController {
 		}
 
 		attachEvent("menu1", MenuEvent.SELECT, function(e:MenuEvent) {
-			trace(e.menuItem.id);
 			var mainTabs:TabView = getComponentAs("mainTabs", TabView);
 			mainTabs.selectedIndex = 3;
 		});
 
+		attachEvent("menu1", MenuEvent.OPEN, function(e:MenuEvent) {
+			if (e.menu.findChild("dynamic-disable-1") != null) {
+				e.menu.findChild("dynamic-disable-1", Component).disabled = true;
+			} else if (e.menu.findChild("dynamic-disable-2") != null) {
+				e.menu.findChild("dynamic-disable-2", Component).disabled = true;
+			} else if (e.menu.findChild("dynamic-disable-3") != null) {
+				e.menu.findChild("dynamic-disable-3", Component).disabled = true;
+			} else if (e.menu.findChild("dynamic-disable-4") != null) {
+				e.menu.findChild("dynamic-disable-4", Component).disabled = true;
+			}
+		});
+		
 		attachEvent("perfButton", UIEvent.MOUSE_DOWN, function(e:UIEvent) {
-			trace(e.displayObject);
-			trace("ui click");
+			getComponent("theList").disabled = !getComponent("theList").disabled;
 		});
 		
 		attachEvent("showSimplePopup", MouseEvent.CLICK, function(e) {
@@ -279,6 +291,16 @@ class TestController extends XMLController {
 				getComponent("image2").width = 165 * 2;
 				getComponent("image2").height = 124 * 2;
 			});
+		}
+		
+		{
+			var testTable:TableView = getComponentAs("testTable", TableView);
+			testTable.columns.add("colA");
+			testTable.columns.add("colB", 200);
+			testTable.columns.add("colC");
+			for (n in 0...20) {
+				testTable.dataSource.add( { colA : n + " A", colB: n + " B", colC: n + " C" } );
+			}
 		}
 	}
 	

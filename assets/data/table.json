@@ -1,0 +1,34 @@
+[
+	{ "colA": "Value1 A", "colB": "Value1 B", "colC" :"Value1 C" },
+	{ "colA": "Value2 A", "colB": "Value2 B", "colC" :"Value2 C" },
+	{ "colA": "Value3 A", "colB": "Value3 B", "colC" :"Value3 C" },
+	{ "colA": "Value4 A", "colB": "Value4 B", "colC" :"Value4 C" },
+	{ "colA": "Value5 A", "colB": "Value5 B", "colC" :"Value5 C" },
+	{ "colA": "Button Cell", "colB": {"type": "button", "value": "Some Button"}, "colC": "Click Button" },
+	{ "colA": "Slider Cell", "colB": {"type": "slider", "value": 75}, "colC": "Slider value" },
+	{ "colA": "Progress Cell", "colB": {"type": "progress", "value": 25}, "colC": "Progress value" },
+	{ "colA": "List Cell", "colB": {"type": "list", "value": "Select Something", "dataSource": [
+		{"text": "Item 1"},
+		{"text": "Item 2"},
+		{"text": "Item 3"},
+		{"text": "Item 4"},
+		{"text": "Item 5"}
+	]}, "colC": "Selected Item" },
+	
+	{
+		"colA": {"type": "button", "value": "Button"},
+		"colB": {"type": "slider", "value": 50},
+		"colC": ""
+	},
+
+	{
+		"colA": {"type": "list", "value": "Select", "dataSource": [
+			{"text": "Item 1"},
+			{"text": "Item 2"},
+			{"text": "Item 3"},
+			{"text": "Item 4"},
+			{"text": "Item 5"} ]},
+		"colB": {"type": "progress", "value": 80},
+		"colC": ""
+	}
+]

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ui:menu xmlns:ui="haxeui::ui">
 	<ui:menuitem text="Item 1" id="testMenuItem1" />
-	<ui:menuitem text="Item 2" />
+	<ui:menuitem text="Item 2" disabled="true" />
 	<ui:menuitem text="Item 3" />
 	<ui:menu text="Expandable 1">
-		<ui:menuitem text="Sub 1" />
+		<ui:menuitem text="Disabled 1" id="dynamic-disable-1" />
 		<ui:menuitem text="Sub 2" />
 		<ui:menuitem text="Sub 3" />
 		<ui:menu text="Expandable 2">
-			<ui:menuitem text="Sub Sub 1" />
+			<ui:menuitem text="Disabled 2" id="dynamic-disable-2"/>
 			<ui:menuitem text="Sub Sub 2" />
 			<ui:menuitem text="Sub Sub 3" />
 			<ui:menu text="Expandable 3">
-				<ui:menuitem text="Sub Sub Sub 1" />
+				<ui:menuitem text="Disabled 3"  id="dynamic-disable-3" />
 				<ui:menuitem text="Sub Sub Sub 2" />
 				<ui:menuitem text="Sub Sub Sub 3" />
 				<ui:menu text="Expandable 4">
-					<ui:menuitem text="Sub Sub Sub Sub 1" />
+					<ui:menuitem text="Disabled 4"  id="dynamic-disable-4"/>
 					<ui:menuitem text="Sub Sub Sub Sub 2" />
 					<ui:menuitem text="Sub Sub Sub Sub 3" />
 				</ui:menu>

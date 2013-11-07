@@ -270,6 +270,9 @@
 				<selection:list text="Select Item 3">
 					<data:array>Item 1, Item 2, Item 3, Item 4</data:array>
 				</selection:list>
+				<selection:list text="Select Item 3" disabled="true">
+					<data:array>Item 1, Item 2, Item 3, Item 4</data:array>
+				</selection:list>
 			</ui:hbox>
 			<ui:hbox>
 				<selection:date />
@@ -283,6 +286,7 @@
 				<ui:button text="Styled" id="styled" />
 				<ui:button text="Toggle 1" toggle="true" selected="true" />
 				<ui:button text="Toggle 2" toggle="true" />
+				<ui:button text="Disabled" disabled="true" />
 				
 				<!--
 				<ui:calendar id="calendar"> 
@@ -293,17 +297,21 @@
 			
 			<ui:hprogress pos="50" />
 			<ui:progress pos="75" direction="horizontal" width="200" height="40" />
+			<ui:hprogress pos="50" disabled="true" />
 			
 			<ui:hbox>
 				<ui:checkbox text="Checkbox 1"/>
 				<ui:checkbox text="Checkbox 2" selected="true" />
 				<ui:checkbox text="Checkbox 3"/>
+				<ui:checkbox text="Checkbox 4" disabled="true" />
+				<ui:checkbox text="Checkbox 5" disabled="true" selected="true" />
 			</ui:hbox>
 			
 			<ui:hbox>
 				<ui:optionbox text="Optionbox 1" group="group1" />
 				<ui:optionbox text="Optionbox 2" group="group1" />
 				<ui:optionbox text="Optionbox 3" group="group1" selected="true" />
+				<ui:optionbox text="Optionbox 3" group="group1" disabled="true" />
 			</ui:hbox>
 			
 			<ui:hbox width="100%">
@@ -313,6 +321,8 @@
 					
 					<ui:textinput text="" placeholderText="Enter something" />
 					<ui:textinput text="" displayAsPassword="true" placeholderText="Enter password" />
+					
+					<ui:textinput text="disabled" disabled="true" />
 				</ui:vbox>
 				<ui:textinput text="Multiline input" multiline="true" width="100%" height="100"/>
 			</ui:hbox>
@@ -346,11 +356,18 @@
 			<ui:button text="9" />
 		</ui:grid>
 
+		<ui:vbox width="100%" height="100%" text="Table">
+			<ui:tableview width="100%" height="100%" dataSource="json://data/table.json" id="testTable">
+				
+			</ui:tableview>
+		</ui:vbox>
+		
 		<ui:vbox text="Scrolls">
 			<ui:hbox>
 				<ui:vscroll />
 				<ui:vscroll height="200" />
 				<ui:vscroll width="30" height="200" />
+				<ui:vscroll disabled="true" />
 				
 				<ui:scrollview width="200" height="200">
 					<ui:image resource="img/slinky.jpg" />
@@ -359,24 +376,29 @@
 				<ui:vprogress pos="25" />
 				<ui:vprogress height="200" pos="75" />
 				<ui:vprogress width="30" height="200" pos="50" />
+				<ui:vprogress pos="25" disabled="true" />
 
 				<ui:vslider pos="25" />
 				<ui:vslider height="200" pos="75" />
 				<ui:vslider width="30" height="200" pos="50" />
+				<ui:vslider pos="25" disabled="true" />
 				
 			</ui:hbox>
 			
 			<ui:hscroll />
 			<ui:hscroll width="200" />
 			<ui:hscroll width="200" height="30" />
+			<ui:hscroll disabled="true" />
 			
 			<ui:hprogress pos="25" />
 			<ui:hprogress width="200" pos="75" />
 			<ui:hprogress width="200" height="30" pos="50" />
+			<ui:hprogress pos="25" disabled="true" />
 			
 			<ui:hslider pos="25" />
 			<ui:hslider width="200" pos="75" />
 			<ui:hslider width="200" height="30" pos="50" />
+			<ui:hslider pos="25" disabled="true" />
 		</ui:vbox>
 		
 		<ui:vbox text="Demo" width="100%">
