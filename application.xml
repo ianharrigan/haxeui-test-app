@@ -20,6 +20,7 @@
 	
 	<!-- assets -->
 	<icon path="assets/application-default-icon.svg" />
+	<assets path="assets" rename="assets" />
 	<assets path="assets/img" rename="img" />
 	
 	<assets path="assets/ui" rename="ui" exclude="*.xml|*.css" if="html5" />
@@ -53,7 +54,9 @@
 	<haxeflag name="-resource" value="assets/ui/test01.xml@ui/test01.xml" />
 	<haxeflag name="-resource" value="assets/ui/test02.xml@ui/test02.xml" />
 	<haxeflag name="-resource" value="assets/ui/test03.xml@ui/test03.xml" />
+	<haxeflag name="-resource" value="assets/ui/html_test.xml@ui/html_test.xml" />
 
+	<!--
 	<haxeflag name="-resource" value="assets/img/application_32.png@img/application_32.png" />
 	<haxeflag name="-resource" value="assets/img/exclamation.png@img/exclamation.png" />
 	<haxeflag name="-resource" value="assets/img/fav_16.png@img/fav_16.png" />
@@ -62,12 +65,14 @@
 	<haxeflag name="-resource" value="assets/img/slinky.jpg@img/slinky.jpg" />
 	<haxeflag name="-resource" value="assets/img/slinky_large.jpg@img/slinky_large.jpg" />
 	<haxeflag name="-resource" value="assets/img/slinky_small.jpg@img/slinky_small.jpg" />
+	-->
 	
 	<!--
 	*********************************************************************************************
 	** HaxeUI embedded resources
 	*********************************************************************************************
 	-->
+	<!--
 	<haxeflag name="-resource" value="img/rtfview/edit-alignment-center.png@img/rtfview/edit-alignment-center.png" />
 	<haxeflag name="-resource" value="img/rtfview/edit-alignment-justify.png@img/rtfview/edit-alignment-justify.png" />
 	<haxeflag name="-resource" value="img/rtfview/edit-alignment-left.png@img/rtfview/edit-alignment-left.png" />
@@ -90,4 +95,5 @@
 	<haxeflag name="-resource" value="styles/gradient/cross_dark.png@styles/gradient/cross_dark.png" />
 	<haxeflag name="-resource" value="styles/gradient/gripper_horizontal.png@styles/gradient/gripper_horizontal.png" />
 	<haxeflag name="-resource" value="styles/gradient/gripper_vertical.png@styles/gradient/gripper_vertical.png" />
+	-->
 </project>

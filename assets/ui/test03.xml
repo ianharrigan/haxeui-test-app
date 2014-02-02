@@ -1,7 +1,25 @@
-		<ui:listview width="50%" height="200" id="theList" xmlns:ui="haxeui::ui" xmlns:data="haxeui::data">
-			<data:json>
-				[
-					{"text": "Item 1"}
-				]
-			</data:json>
-		</ui:listview>
+<?xml version="1.0" encoding="utf-8" ?>
+<vbox width="100%" height="100%">
+	<menubar>
+		<button x="100" y="100" id="testButton" text="Test" />
+	</menubar>
+	
+	<tabview width="100%" height="100%">
+		<vbox text="Tab 1" width="100%" height="100%">
+			<button text="Bob" />
+			<checkbox text="Bob" />
+		</vbox>
+		<vbox text="Tab 2" width="100%" height="100%">
+			<button text="Bob" />
+		</vbox>
+		<vbox text="Tab 3" width="100%" height="100%">
+			<button text="Bob" />
+		</vbox>
+		<vbox text="Tab 4" width="100%" height="100%">
+			<button text="Bob" />
+		</vbox>
+		<vbox text="Tab 5" width="100%" height="100%">
+			<button text="Bob" />
+		</vbox>
+	</tabview>
+</vbox>

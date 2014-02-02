@@ -1,5 +1,222 @@
-<ui:hbox width="100%">
-            <ui:vbox>
-                <ui:textinput text="" placeholderText="test text" />  
-            </ui:vbox>        
-</ui:hbox>
+<?xml version="1.0" encoding="utf-8" ?>
+<vbox width="100%" height="100%">
+	<style>
+		TabBar #tabButton {
+			icon: img/fav_16.png
+		}
+		
+		#main {
+			spacingY: 5;
+		}
+	</style>
+	
+	<menubar>
+		<!--
+		<menubutton text="Menu 1" id="menu1">
+			<sys:import resource="ui/menu.xml" />
+		</menubutton>
+		<menubutton text="Menu 2">
+			<sys:import resource="ui/menu.xml" />
+		</menubutton>
+		<menubutton text="Menu 3">
+			<sys:import resource="ui/menu.xml" />
+		</menubutton>
+		<button text="Menubar Button" />
+		<spacer width="100%" />
+		<selection:list text="Select Style" id="styleList">
+			<array>Gradient, Gradient Mobile, Windows, Default</array>
+		</selection:list>
+		-->
+	</menubar>
+	
+	<tabview width="100%" height="100%" id="timmy">
+		<vbox text="List" width="100%" height="100%">
+			<hbox>
+				<selection:list text="Select Item 1">
+					<array>Item 1, Item 2, Item 3, Item 4, Item 5</array>
+				</selection:list>
+				<selection:list text="Select Item 2">
+					<array>Item 1, Item 2</array>
+				</selection:list>
+				<selection:list text="Select Item 3">
+					<array>Item 1, Item 2, Item 3, Item 4</array>
+				</selection:list>
+				<button text="Test" id="perfButton" />
+			</hbox>
+			
+			<hbox text="List" width="100%" height="100%">
+				<listview width="50%" height="100%" id="theList">
+					<json>
+						[
+							{"text": "Item 1", "controlId": "sendButton", "type": "button", "value": "Send", "subtext": "Sub text 1"},
+							{"text": "Item 2", "subtext": "Subtext 2"},
+							{"text": "Item 3", "subtext": "Subtext + icon", "icon": "img/fav_32.png"},
+							{"text": "Item 4 + icon + button", "icon": "img/fav_16.png", "controlId": "someAction", "type": "button", "value": "Some Action"},
+							{"text": "Item 5 + slider", "subtext": "something", "type": "slider", "value": 25},
+							{"text": "Item 6 + progress", "type": "progress", "value": 75},
+							{"text": "Item 7 + select", "type": "list", "dataSource": [
+																			{ "text": "Option 1" },
+																			{ "text": "Option 2" },
+																			{ "text": "Option 3" },
+																			{ "text": "Option 4" },
+																			{ "text": "Option 5" },
+																			{ "text": "Option 6" },
+																			{ "text": "Option 7" },
+																			{ "text": "Option 8" }
+																		]},
+							{"text": "Item 7 + select", "type": "list", "dataSource": [
+																			{ "text": "Option 1" },
+																			{ "text": "Option 2" },
+																			{ "text": "Option 3" },
+																			{ "text": "Option 4" },
+																			{ "text": "Option 5" },
+																			{ "text": "Option 6" },
+																			{ "text": "Option 7" },
+																			{ "text": "Option 8" }
+																		]},
+							{"text": "Item 6 + progress", "type": "progress", "value": 75},
+							{"text": "Item 8", "subtext": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of 'de Finibus Bonorum et Malorum' (The Extremes of Good and Evil)"},
+							{"text": "Item 9"},
+							{"text": "Item 10"},
+							{"text": "Item 11"},
+							{"text": "Item 12"},
+							{"text": "Item 13"},
+							{"text": "Item 14"},
+							{"text": "Item 15"},
+							{"text": "Item 16"},
+							{"text": "Item 17"},
+							{"text": "Item 18"},
+							{"text": "Item 19"},
+							{"text": "Item 20"},
+							{"text": "Item 21"},
+							{"text": "Item 22"},
+							{"text": "Item 23"},
+							{"text": "Item 24"},
+							{"text": "Item 25"},
+							{"text": "Item 26"},
+							{"text": "Item 27"},
+							{"text": "Item 28"},
+							{"text": "Item 29"},
+							{"text": "Item 30"}
+						]
+					</json>
+				</listview>
+				
+				<accordion width="50%" height="100%">
+					<grid text="Buttons" columns="9" style="spacing:5;">
+						<button text="1" />
+						<button text="1" />
+						<button text="1" />
+						<button text="1" />
+						<button text="1" />
+						<button text="1" />
+						<button text="1" />
+						<button text="1" />
+						<button text="1" />
+						
+						<button text="2" />
+						<button text="2" />
+						<button text="2" />
+						<button text="2" />
+						<button text="2" />
+						<button text="2" />
+						<button text="2" />
+						<button text="2" />
+						<button text="2" />
+						
+						<button text="3" />
+						<button text="3" />
+						<button text="3" />
+						<button text="3" />
+						<button text="3" />
+						<button text="3" />
+						<button text="3" />
+						<button text="3" />
+						<button text="3" />
+						
+						<button text="4" />
+						<button text="4" />
+						<button text="4" />
+						<button text="4" />
+						<button text="4" />
+						<button text="4" />
+						<button text="4" />
+						<button text="4" />
+						<button text="4" />
+						
+						<button text="5" />
+						<button text="5" />
+						<button text="5" />
+						<button text="5" />
+						<button text="5" />
+						<button text="5" />
+						<button text="5" />
+						<button text="5" />
+						<button text="5" />
+						
+						<button text="6" />
+						<button text="6" />
+						<button text="6" />
+						<button text="6" />
+						<button text="6" />
+						<button text="6" />
+						<button text="6" />
+						<button text="6" />
+						<button text="6" />
+						
+						<button text="7" />
+						<button text="7" />
+						<button text="7" />
+						<button text="7" />
+						<button text="7" />
+						<button text="7" />
+						<button text="7" />
+						<button text="7" />
+						<button text="7" />
+						
+						<button text="8" />
+						<button text="8" />
+						<button text="8" />
+						<button text="8" />
+						<button text="8" />
+						<button text="8" />
+						<button text="8" />
+						<button text="8" />
+						<button text="8" />
+						
+						<button text="9" />
+						<button text="9" />
+						<button text="9" />
+						<button text="9" />
+						<button text="9" />
+						<button text="9" />
+						<button text="9" />
+						<button text="9" />
+						<button text="9" />
+					</grid>
+					<vbox text="Image Panel" id="nopadding">
+						<scrollview width="100%" height="100%">
+							<image resource="img/slinky.jpg" />
+						</scrollview>
+					</vbox>
+					<vbox text="List Panel" id="nopadding">
+						<listview width="100%" height="100%">
+							<array>
+								Item 1, Item 2, Item 3, Item 4, Item 5, Item 6, Item 7, Item 8, Item 9, Item 10,
+								Item 11, Item 12, Item 13, Item 14, Item 15, Item 16, Item 17, Item 18, Item 19, Item 20
+							</array>
+						</listview>
+					</vbox>
+					<vbox text="Panel 4">
+						<button text="Button 4" />
+					</vbox>
+				</accordion>
+				
+			</hbox>
+		</vbox>
+		<vbox text="List 2" width="100%" height="100%">
+			<button text="Bob2" />
+		</vbox>
+	</tabview>
+</vbox>
+

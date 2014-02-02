@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<vbox width="100%" height="100%" id="main" xmlns:ui="haxe:ui" xmlns:style="haxe:style" xmlns:data="haxe:data" xmlns:selection="haxe:selection" xmlns:sys="haxe:sys">
+<vbox width="100%" height="100%" id="main">
 	<style>
 		TabBar #tabButton {
 			icon: img/fav_16.png
@@ -34,35 +34,18 @@
 		}
 	</style>
 	
-	<style>
-		#warning1, #warning2 {
-			borderSize: 1;
-			borderColor: 0x808080;
-			backgroundColor: 0xFFFFFF;
-			cornerRadius: 3;
-			paddingLeft: 3;
-			paddingTop: 3;
-			paddingBottom: 3;
-			paddingRight: 3;
-			filter: dropShadow(2, 45, 0x808080, 1, 4, 4, 1, 3);
-		}
-	</style>
-	
 	<menubar>
 		<menubutton text="Menu 1" id="menu1">
-			<sys:import resource="ui/menu.xml" />
+			<import resource="ui/menu.xml" />
 		</menubutton>
 		<menubutton text="Menu 2">
-			<sys:import resource="ui/menu.xml" />
+			<import resource="ui/menu.xml" />
 		</menubutton>
 		<menubutton text="Menu 3">
-			<sys:import resource="ui/menu.xml" />
+			<import resource="ui/menu.xml" />
 		</menubutton>
-		<button text="Menubar Button" />
 		<spacer width="100%" />
-		<list text="Select Style" id="styleList">
-			<array>Gradient, Gradient Mobile, Windows, Default</array>
-		</list>
+		<button text="Menubar Button" />
 	</menubar>
 	
 	<tabview width="100%" height="100%" id="mainTabs">
@@ -139,95 +122,7 @@
 				
 				<accordion width="50%" height="100%">
 					<grid text="Buttons" columns="9" style="spacing:5;">
-						<button text="1" />
-						<button text="1" />
-						<button text="1" />
-						<button text="1" />
-						<button text="1" />
-						<button text="1" />
-						<button text="1" />
-						<button text="1" />
-						<button text="1" />
-						
-						<button text="2" />
-						<button text="2" />
-						<button text="2" />
-						<button text="2" />
-						<button text="2" />
-						<button text="2" />
-						<button text="2" />
-						<button text="2" />
-						<button text="2" />
-						
-						<button text="3" />
-						<button text="3" />
-						<button text="3" />
-						<button text="3" />
-						<button text="3" />
-						<button text="3" />
-						<button text="3" />
-						<button text="3" />
-						<button text="3" />
-						
-						<button text="4" />
-						<button text="4" />
-						<button text="4" />
-						<button text="4" />
-						<button text="4" />
-						<button text="4" />
-						<button text="4" />
-						<button text="4" />
-						<button text="4" />
-						
-						<button text="5" />
-						<button text="5" />
-						<button text="5" />
-						<button text="5" />
-						<button text="5" />
-						<button text="5" />
-						<button text="5" />
-						<button text="5" />
-						<button text="5" />
-						
-						<button text="6" />
-						<button text="6" />
-						<button text="6" />
-						<button text="6" />
-						<button text="6" />
-						<button text="6" />
-						<button text="6" />
-						<button text="6" />
-						<button text="6" />
-						
-						<button text="7" />
-						<button text="7" />
-						<button text="7" />
-						<button text="7" />
-						<button text="7" />
-						<button text="7" />
-						<button text="7" />
-						<button text="7" />
-						<button text="7" />
-						
-						<button text="8" />
-						<button text="8" />
-						<button text="8" />
-						<button text="8" />
-						<button text="8" />
-						<button text="8" />
-						<button text="8" />
-						<button text="8" />
-						<button text="8" />
-						
-						<button text="9" />
-						<button text="9" />
-						<button text="9" />
-						<button text="9" />
-						<button text="9" />
-						<button text="9" />
-						<button text="9" />
-						<button text="9" />
-						<button text="9" />
+						<button text="Button" />
 					</grid>
 					<vbox text="Image Panel" id="nopadding">
 						<scrollview width="100%" height="100%">
@@ -241,9 +136,6 @@
 								Item 11, Item 12, Item 13, Item 14, Item 15, Item 16, Item 17, Item 18, Item 19, Item 20
 							</array>
 						</listview>
-					</vbox>
-					<vbox text="Panel 4">
-						<button text="Button 4" />
 					</vbox>
 				</accordion>
 
@@ -287,12 +179,6 @@
 				<button text="Toggle 1" toggle="true" selected="true" />
 				<button text="Toggle 2" toggle="true" />
 				<button text="Disabled" disabled="true" />
-				
-				<!--
-				<calendar id="calendar"> 
-					
-				</calendar>
-				-->
 			</hbox>
 			
 			<hprogress pos="50" />
@@ -401,185 +287,8 @@
 			<hslider pos="25" disabled="true" />
 		</vbox>
 		
-		<vbox text="Demo" width="100%">
-			<text text="Transitions:"/>
-			<grid columns="4">
-				<text text="Accordion: "/>
-				<optionbox text="None" group="accordionTrans" id="accordionTransNone" />
-				<optionbox text="Fade" group="accordionTrans" id="accordionTransFade" />
-				<optionbox text="Slide" group="accordionTrans" id="accordionTransSlide" />
-				
-				<text text="Tab view: "/>
-				<optionbox text="None" group="tabViewTrans" id="tabViewTransNone" />
-				<optionbox text="Fade" group="tabViewTrans" id="tabViewTransFade" />
-				<optionbox text="Slide" group="tabViewTrans" id="tabViewTransSlide"/>
-				
-				<text text="Dropdowns: "/>
-				<optionbox text="None" group="dropDownTrans" id="dropDownTransNone" />
-				<optionbox text="Fade" group="dropDownTrans" id="dropDownTransFade" />
-				<optionbox text="Slide" group="dropDownTrans" id="dropDownTransSlide" />
-				
-				<text text="Popups: "/>
-				<optionbox text="None" group="popupsTrans" id="popupsTransNone" />
-				<optionbox text="Fade" group="popupsTrans" id="popupsTransFade" />
-				<optionbox text="Slide" group="popupsTrans" id="popupsTransSlide" />
-			</grid>
-		</vbox>
-		
 		<vbox text="Calendar" width="100%" height="100%">
 			<calendarview width="100%" height="100%"/>
-		</vbox>
-		
-		<vbox text="Data">
-			<array id="arrayDS" resource="data/data.txt">
-				Append 1,Append 2,Append 3
-			</array>
-			
-			<json id="jsonDS" resource="data/data.json">
-				[
-					{"text": "Append 1"},
-					{"text": "Append 2"},
-					{"text": "Append 3"}
-				]
-			</json>
-
-			<xml id="xmlDS" resource="data/data.xml">
-				<xml>
-					<item text="Append 1" />
-					<item text="Append 2" />
-					<item text="Append 3" />
-				</xml>
-			</xml>
-			
-			<grid columns="5">
-				<list text="Select Item" id="xmlTestList">
-					<xml>
-						<xml>
-							<item text="item 1" count="5" />
-							<item text="item 2" count="10"/>
-							<item text="item 3" count="15"/>
-						</xml>
-					</xml>
-				</list>
-				
-				<text text="Array (Inline)"/>
-				<text text="JSON (Inline)"/>
-				<text text="XML (Inline)"/>
-				<text text="Files (Neko)"/>
-				<text text="MySQL (Neko)"/>
-
-				<list text="Select Item">
-					<array>Item 1, Item 2, Item 3, Item 4</array>
-				</list>
-
-				<list text="Select Item">
-					<json>
-						[
-							{"text": "Item 1"},
-							{"text": "Item 2"},
-							{"text": "Item 3"},
-							{"text": "Item 4"}
-						]
-					</json>
-				</list>
-				
-				<list text="Select Item">
-					<xml>
-						<xml>
-							<item text="Item 1" />
-							<item text="Item 2" />
-							<item text="Item 3" />
-							<item text="Item 4" />
-						</xml>
-					</xml>
-				</list>
-				
-				<list text="Select File" condition="Client.target == 'neko'">
-					<files resource="C:\temp\files" />
-				</list>
-				
-				<list text="Select MySQL" condition="Client.target == 'neko'">
-					<mysql resource="localhost:3306/haxe_db?user=root&pass=root&q=SELECT * FROM datasource1" />
-				</list>
-			</grid>
-			
-			<grid columns="3">
-				<text text="Array (Resource)"/>
-				<text text="JSON (Resource)"/>
-				<text text="XML (Resource)"/>
-
-				<list text="Select Item">
-					<array resource="data/data.txt" />
-				</list>
-
-				<list text="Select Item">
-					<json resource="data/data.json" />
-				</list>
-				
-				<list text="Select Item">
-					<xml resource="data/data.xml" />
-				</list>
-			</grid>
-			
-			<grid columns="3">
-				<text text="Array (Reference)"/>
-				<text text="JSON (Reference)"/>
-				<text text="XML (Reference)"/>
-
-				<list text="Select Item" dataSource="arrayDS" />
-				<list text="Select Item" dataSource="jsonDS" />
-				<list text="Select Item" dataSource="xmlDS" />
-			</grid>
-			
-			<grid columns="5">
-				<text text="Array (Proto)"/>
-				<text text="JSON (Proto)"/>
-				<text text="XML (Proto)"/>
-				<text text="Files (Neko)"/>
-				<text text="MySQL (Neko)"/>
-
-				<list text="Select Item" dataSource="array://data/data.txt" />
-				<list text="Select Item" dataSource="json://data/data.json" />
-				<list text="Select Item" dataSource="xml://data/data.xml" />
-				<list text="Select File" dataSource="files://C:/temp/files" condition="Client.target == 'neko'" />
-				<list text="Select MySQL" dataSource="mysql://localhost:3306/haxe_db?user=root&pass=root&q=SELECT * FROM datasource1" condition="Client.target == 'neko'" />
-
-			</grid>
-		</vbox>
-
-		<vbox text="RTF Edit" width="100%" height="100%" condition="Client.target != 'html5'">
-			<hbox id="warning2" width="100%" condition="Client.target != 'flash'">
-				<image resource="img/exclamation.png" height="100%" />
-				<text text="Only functional in flash due to text selection limitations." width="100%" />	
-			</hbox>
-			<rtfview width="100%" height="100%" htmlText="asset://data/rtf.txt" />
-		</vbox>
-		
-		<vbox text="Code Edit" width="100%" height="100%">
-			<hbox id="warning2" width="100%" condition="Client.target != 'flash'">
-				<image resource="img/exclamation.png" height="100%" />
-				<text text="Performance issues." width="100%" />	
-			</hbox>
-			<checkbox text="Asynchronous" id="codeAsync" />
-			<code id="code" width="100%" height="100%" syntax="haxe" text="asset://data/code.txt" />
-		</vbox>
-
-		<vbox text="Psuedo Threads" width="100%" height="100%">
-			<hbox>
-				<button text="Create Runner" id="createRunner" />
-				<text text="Timeshare (0 - 1):" verticalAlign="center" />
-				<textinput text=".001"  id="runnnerTimeshare" />
-			</hbox>
-			<listview id="runnerList" width="100%" height="100%" />
-		</vbox>
-		
-		<vbox text="Test" width="100%" height="100%">
-			<hbox>
-				<image resource="img/slinky_small.jpg" id="image1" stretch="true" />
-				<image resource="img/slinky_small.jpg" id="image2" />
-			</hbox>
-			<button text="Original" id="resizeOrg" />
-			<button text="Resize" id="resizeBigger" />
 		</vbox>
 		
 		<vbox text="Tab 1" />

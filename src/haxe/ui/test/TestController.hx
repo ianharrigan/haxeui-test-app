@@ -36,14 +36,23 @@ import haxe.ui.toolkit.util.psuedothreads.AsyncThreadCaller;
 import haxe.ui.toolkit.util.psuedothreads.Runner;
 
 class TestController extends XMLController {
+	public static var _testValue:String;
+	
 	public function new() {
-		var resourceId:String = "ui/test02.xml";
+		var resourceId:String = "ui/html_test.xml";
 		super(resourceId);
 		
-		if (resourceId != "ui/test02.xml") {
+		/*
+		attachEvent("xmlTestList", Event.CHANGE, function(e) {
+			trace(getComponentAs("xmlTestList", List).selectedItems[0].data.count);
+		});
+		*/
+		
+		if (resourceId != "ui/test02.xml" && resourceId != "ui/html_test.xml") {
 			return;
 		}
 
+		
 		attachEvent("menu1", MenuEvent.SELECT, function(e:MenuEvent) {
 			var mainTabs:TabView = getComponentAs("mainTabs", TabView);
 			mainTabs.selectedIndex = 3;
@@ -90,7 +99,7 @@ class TestController extends XMLController {
 		});
 
 		attachEvent("showListPopup", MouseEvent.CLICK, function(e) {
-			PopupManager.instance.showList(root, ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"], "Select Item", 1, function (item:ListViewItem) {
+			PopupManager.instance.showList(root, ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"], "Select Item", 1, true, function (item:ListViewItem) {
 				PopupManager.instance.showSimple(root, "You selected '" + item.text + "'", "Selection");
 			});
 		});
@@ -111,195 +120,201 @@ class TestController extends XMLController {
 			}
 		});
 		
-		attachEvent("styleList", Event.CHANGE, function(e) {
-			var style:String = getComponentAs("styleList", List).selectedItems[0].text.toLowerCase();
-			RootManager.instance.destroyAllRoots();
-			//Toolkit.defaultStyle = style;
-			StyleManager.instance.clear();
-			ResourceManager.instance.reset();
-			if (style == "gradient") {
-				Macros.addStyleSheet("styles/gradient/gradient.css");
-			} else if (style == "gradient mobile") {
-				Macros.addStyleSheet("styles/gradient/gradient_mobile.css");				
-			} else if (style == "windows") {
-				Macros.addStyleSheet("styles/windows/windows.css");
-				Macros.addStyleSheet("styles/windows/buttons.css");
-				Macros.addStyleSheet("styles/windows/tabs.css");
-				Macros.addStyleSheet("styles/windows/listview.css");
-				Macros.addStyleSheet("styles/windows/scrolls.css");
-				Macros.addStyleSheet("styles/windows/sliders.css");
-				Macros.addStyleSheet("styles/windows/accordion.css");
-				Macros.addStyleSheet("styles/windows/rtf.css");
-				Macros.addStyleSheet("styles/windows/calendar.css");
-				Macros.addStyleSheet("styles/windows/popups.css");
-				Macros.addStyleSheet("styles/windows/menus.css");
-			} else if (style == "default") {
-				StyleManager.instance.addStyles(new DefaultStyles());
-			}
-			Toolkit.openFullscreen(function(root:Root) {
-				root.addChild(new TestController().view);
+		if (resourceId == "ui/test02.xml") {
+			attachEvent("styleList", Event.CHANGE, function(e) {
+				var style:String = getComponentAs("styleList", List).selectedItems[0].text.toLowerCase();
+				RootManager.instance.destroyAllRoots();
+				//Toolkit.defaultStyle = style;
+				StyleManager.instance.clear();
+				ResourceManager.instance.reset();
+				if (style == "gradient") {
+					Macros.addStyleSheet("styles/gradient/gradient.css");
+				} else if (style == "gradient mobile") {
+					Macros.addStyleSheet("styles/gradient/gradient_mobile.css");				
+				} else if (style == "windows") {
+					Macros.addStyleSheet("styles/windows/windows.css");
+					Macros.addStyleSheet("styles/windows/buttons.css");
+					Macros.addStyleSheet("styles/windows/tabs.css");
+					Macros.addStyleSheet("styles/windows/listview.css");
+					Macros.addStyleSheet("styles/windows/scrolls.css");
+					Macros.addStyleSheet("styles/windows/sliders.css");
+					Macros.addStyleSheet("styles/windows/accordion.css");
+					Macros.addStyleSheet("styles/windows/rtf.css");
+					Macros.addStyleSheet("styles/windows/calendar.css");
+					Macros.addStyleSheet("styles/windows/popups.css");
+					Macros.addStyleSheet("styles/windows/menus.css");
+				} else if (style == "default") {
+					StyleManager.instance.addStyles(new DefaultStyles());
+				}
+				Toolkit.openFullscreen(function(root:Root) {
+					root.addChild(new TestController().view);
+				});
 			});
-		});
+		}
 
-		// set demo tab values
-		{
-			var accordionTrans:String = Toolkit.getTransitionForClass(Accordion);
-			if (accordionTrans == "none") {
-				getComponentAs("accordionTransNone", OptionBox).selected = true;
-			} else if (accordionTrans == "fade") {
-				getComponentAs("accordionTransFade", OptionBox).selected = true;
-			} else if (accordionTrans == "slide") {
-				getComponentAs("accordionTransSlide", OptionBox).selected = true;
+		if (resourceId == "ui/test02.xml") {
+			// set demo tab values
+			{
+				var accordionTrans:String = Toolkit.getTransitionForClass(Accordion);
+				if (accordionTrans == "none") {
+					getComponentAs("accordionTransNone", OptionBox).selected = true;
+				} else if (accordionTrans == "fade") {
+					getComponentAs("accordionTransFade", OptionBox).selected = true;
+				} else if (accordionTrans == "slide") {
+					getComponentAs("accordionTransSlide", OptionBox).selected = true;
+				}
+				
+				attachEvent("accordionTransNone", Event.CHANGE, function(e) {
+					if (getComponentAs("accordionTransNone", OptionBox).selected == true) {
+						Toolkit.setTransitionForClass(Accordion, "none");
+					}
+				});
+				attachEvent("accordionTransFade", Event.CHANGE, function(e) {
+					if (getComponentAs("accordionTransFade", OptionBox).selected == true) {
+						Toolkit.setTransitionForClass(Accordion, "fade");
+					}
+				});
+				attachEvent("accordionTransSlide", Event.CHANGE, function(e) {
+					if (getComponentAs("accordionTransSlide", OptionBox).selected == true) {
+						Toolkit.setTransitionForClass(Accordion, "slide");
+					}
+				});
 			}
 			
-			attachEvent("accordionTransNone", Event.CHANGE, function(e) {
-				if (getComponentAs("accordionTransNone", OptionBox).selected == true) {
-					Toolkit.setTransitionForClass(Accordion, "none");
+			{
+				var stackTrans:String = Toolkit.getTransitionForClass(Stack);
+				if (stackTrans == "none") {
+					getComponentAs("tabViewTransNone", OptionBox).selected = true;
+				} else if (stackTrans == "fade") {
+					getComponentAs("tabViewTransFade", OptionBox).selected = true;
+				} else if (stackTrans == "slide") {
+					getComponentAs("tabViewTransSlide", OptionBox).selected = true;
 				}
-			});
-			attachEvent("accordionTransFade", Event.CHANGE, function(e) {
-				if (getComponentAs("accordionTransFade", OptionBox).selected == true) {
-					Toolkit.setTransitionForClass(Accordion, "fade");
-				}
-			});
-			attachEvent("accordionTransSlide", Event.CHANGE, function(e) {
-				if (getComponentAs("accordionTransSlide", OptionBox).selected == true) {
-					Toolkit.setTransitionForClass(Accordion, "slide");
-				}
-			});
-		}
-		
-		{
-			var stackTrans:String = Toolkit.getTransitionForClass(Stack);
-			if (stackTrans == "none") {
-				getComponentAs("tabViewTransNone", OptionBox).selected = true;
-			} else if (stackTrans == "fade") {
-				getComponentAs("tabViewTransFade", OptionBox).selected = true;
-			} else if (stackTrans == "slide") {
-				getComponentAs("tabViewTransSlide", OptionBox).selected = true;
+				
+				attachEvent("tabViewTransNone", Event.CHANGE, function(e) {
+					if (getComponentAs("tabViewTransNone", OptionBox).selected == true) {
+						Toolkit.setTransitionForClass(Stack, "none");
+					}
+				});
+				attachEvent("tabViewTransFade", Event.CHANGE, function(e) {
+					if (getComponentAs("tabViewTransFade", OptionBox).selected == true) {
+						Toolkit.setTransitionForClass(Stack, "fade");
+					}
+				});
+				attachEvent("tabViewTransSlide", Event.CHANGE, function(e) {
+					if (getComponentAs("tabViewTransSlide", OptionBox).selected == true) {
+						Toolkit.setTransitionForClass(Stack, "slide");
+					}
+				});
 			}
 			
-			attachEvent("tabViewTransNone", Event.CHANGE, function(e) {
-				if (getComponentAs("tabViewTransNone", OptionBox).selected == true) {
-					Toolkit.setTransitionForClass(Stack, "none");
+			{
+				var dropDownTrans:String = Toolkit.getTransitionForClass(List);
+				if (dropDownTrans == "none") {
+					getComponentAs("dropDownTransNone", OptionBox).selected = true;
+				} else if (dropDownTrans == "fade") {
+					getComponentAs("dropDownTransFade", OptionBox).selected = true;
+				} else if (dropDownTrans == "slide") {
+					getComponentAs("dropDownTransSlide", OptionBox).selected = true;
 				}
-			});
-			attachEvent("tabViewTransFade", Event.CHANGE, function(e) {
-				if (getComponentAs("tabViewTransFade", OptionBox).selected == true) {
-					Toolkit.setTransitionForClass(Stack, "fade");
-				}
-			});
-			attachEvent("tabViewTransSlide", Event.CHANGE, function(e) {
-				if (getComponentAs("tabViewTransSlide", OptionBox).selected == true) {
-					Toolkit.setTransitionForClass(Stack, "slide");
-				}
-			});
-		}
-		
-		{
-			var dropDownTrans:String = Toolkit.getTransitionForClass(List);
-			if (dropDownTrans == "none") {
-				getComponentAs("dropDownTransNone", OptionBox).selected = true;
-			} else if (dropDownTrans == "fade") {
-				getComponentAs("dropDownTransFade", OptionBox).selected = true;
-			} else if (dropDownTrans == "slide") {
-				getComponentAs("dropDownTransSlide", OptionBox).selected = true;
+				
+				attachEvent("dropDownTransNone", Event.CHANGE, function(e) {
+					if (getComponentAs("dropDownTransNone", OptionBox).selected == true) {
+						Toolkit.setTransitionForClass(List, "none");
+					}
+				});
+				attachEvent("dropDownTransFade", Event.CHANGE, function(e) {
+					if (getComponentAs("dropDownTransFade", OptionBox).selected == true) {
+						Toolkit.setTransitionForClass(List, "fade");
+					}
+				});
+				attachEvent("dropDownTransSlide", Event.CHANGE, function(e) {
+					if (getComponentAs("dropDownTransSlide", OptionBox).selected == true) {
+						Toolkit.setTransitionForClass(List, "slide");
+					}
+				});
 			}
 			
-			attachEvent("dropDownTransNone", Event.CHANGE, function(e) {
-				if (getComponentAs("dropDownTransNone", OptionBox).selected == true) {
-					Toolkit.setTransitionForClass(List, "none");
+			{
+				var popupsTrans:String = Toolkit.getTransitionForClass(Popup);
+				if (popupsTrans == "none") {
+					getComponentAs("popupsTransNone", OptionBox).selected = true;
+				} else if (popupsTrans == "fade") {
+					getComponentAs("popupsTransFade", OptionBox).selected = true;
+				} else if (popupsTrans == "slide") {
+					getComponentAs("popupsTransSlide", OptionBox).selected = true;
 				}
-			});
-			attachEvent("dropDownTransFade", Event.CHANGE, function(e) {
-				if (getComponentAs("dropDownTransFade", OptionBox).selected == true) {
-					Toolkit.setTransitionForClass(List, "fade");
-				}
-			});
-			attachEvent("dropDownTransSlide", Event.CHANGE, function(e) {
-				if (getComponentAs("dropDownTransSlide", OptionBox).selected == true) {
-					Toolkit.setTransitionForClass(List, "slide");
-				}
-			});
-		}
-		
-		{
-			var popupsTrans:String = Toolkit.getTransitionForClass(Popup);
-			if (popupsTrans == "none") {
-				getComponentAs("popupsTransNone", OptionBox).selected = true;
-			} else if (popupsTrans == "fade") {
-				getComponentAs("popupsTransFade", OptionBox).selected = true;
-			} else if (popupsTrans == "slide") {
-				getComponentAs("popupsTransSlide", OptionBox).selected = true;
+				
+				attachEvent("popupsTransNone", Event.CHANGE, function(e) {
+					if (getComponentAs("popupsTransNone", OptionBox).selected == true) {
+						Toolkit.setTransitionForClass(Popup, "none");
+					}
+				});
+				attachEvent("popupsTransFade", Event.CHANGE, function(e) {
+					if (getComponentAs("popupsTransFade", OptionBox).selected == true) {
+						Toolkit.setTransitionForClass(Popup, "fade");
+					}
+				});
+				attachEvent("popupsTransSlide", Event.CHANGE, function(e) {
+					if (getComponentAs("popupsTransSlide", OptionBox).selected == true) {
+						Toolkit.setTransitionForClass(Popup, "slide");
+					}
+				});
 			}
 			
-			attachEvent("popupsTransNone", Event.CHANGE, function(e) {
-				if (getComponentAs("popupsTransNone", OptionBox).selected == true) {
-					Toolkit.setTransitionForClass(Popup, "none");
-				}
-			});
-			attachEvent("popupsTransFade", Event.CHANGE, function(e) {
-				if (getComponentAs("popupsTransFade", OptionBox).selected == true) {
-					Toolkit.setTransitionForClass(Popup, "fade");
-				}
-			});
-			attachEvent("popupsTransSlide", Event.CHANGE, function(e) {
-				if (getComponentAs("popupsTransSlide", OptionBox).selected == true) {
-					Toolkit.setTransitionForClass(Popup, "slide");
-				}
-			});
+			{
+				attachEvent("codeAsync", MouseEvent.CLICK, function(e:Event) {
+					getComponentAs("code", Code).async = getComponentAs("codeAsync", CheckBox).selected;
+				});
+			}
+			
+			{
+				_callers = new Map<ListViewItem, AsyncThreadCaller>();
+				attachEvent("createRunner", MouseEvent.CLICK, _createRunner);
+				attachEvent("runnerList", ListViewEvent.COMPONENT_EVENT, function(e:ListViewEvent) {
+					var list:ListView = getComponentAs("runnerList", ListView);
+					var listItem:ListViewItem = e.item;
+					var caller:AsyncThreadCaller = cast(_callers.get(listItem) , AsyncThreadCaller);
+					caller.cancel();
+					var index:Int = list.getItemIndex(listItem);
+					var n:Int = 0;
+					if (list.dataSource.moveFirst()) {
+						do {
+							if (n == index) {
+								list.dataSource.remove();
+								break;
+							}
+							n++;
+						} while (list.dataSource.moveNext());
+					}
+				});
+			}
 		}
 		
-		{
-			attachEvent("codeAsync", MouseEvent.CLICK, function(e:Event) {
-				getComponentAs("code", Code).async = getComponentAs("codeAsync", CheckBox).selected;
-			});
-		}
-		
-		{
-			_callers = new Map<ListViewItem, AsyncThreadCaller>();
-			attachEvent("createRunner", MouseEvent.CLICK, _createRunner);
-			attachEvent("runnerList", ListViewEvent.COMPONENT_EVENT, function(e:ListViewEvent) {
-				var list:ListView = getComponentAs("runnerList", ListView);
-				var listItem:ListViewItem = e.item;
-				var caller:AsyncThreadCaller = cast(_callers.get(listItem) , AsyncThreadCaller);
-				caller.cancel();
-				var index:Int = list.getItemIndex(listItem);
-				var n:Int = 0;
-				if (list.dataSource.moveFirst()) {
-					do {
-						if (n == index) {
-							list.dataSource.remove();
-							break;
-						}
-						n++;
-					} while (list.dataSource.moveNext());
+		if (resourceId == "ui/test02.xml") {
+			{
+				attachEvent("resizeOrg", MouseEvent.CLICK, function(e) {
+					getComponent("image1").width = 165;
+					getComponent("image1").height = 124;
+					getComponent("image2").width = 165;
+					getComponent("image2").height = 124;
+				});
+				attachEvent("resizeBigger", MouseEvent.CLICK, function(e) {
+					getComponent("image1").width = 165 * 2;
+					getComponent("image1").height = 124 * 2;
+					getComponent("image2").width = 165 * 2;
+					getComponent("image2").height = 124 * 2;
+				});
+			}
+			
+			{
+				var testTable:TableView = getComponentAs("testTable", TableView);
+				testTable.columns.add("colA");
+				testTable.columns.add("colB", 200);
+				testTable.columns.add("colC");
+				for (n in 0...20) {
+					testTable.dataSource.add( { colA : n + " A", colB: n + " B", colC: n + " C" } );
 				}
-			});
-		}
-		
-		{
-			attachEvent("resizeOrg", MouseEvent.CLICK, function(e) {
-				getComponent("image1").width = 165;
-				getComponent("image1").height = 124;
-				getComponent("image2").width = 165;
-				getComponent("image2").height = 124;
-			});
-			attachEvent("resizeBigger", MouseEvent.CLICK, function(e) {
-				getComponent("image1").width = 165 * 2;
-				getComponent("image1").height = 124 * 2;
-				getComponent("image2").width = 165 * 2;
-				getComponent("image2").height = 124 * 2;
-			});
-		}
-		
-		{
-			var testTable:TableView = getComponentAs("testTable", TableView);
-			testTable.columns.add("colA");
-			testTable.columns.add("colB", 200);
-			testTable.columns.add("colC");
-			for (n in 0...20) {
-				testTable.dataSource.add( { colA : n + " A", colB: n + " B", colC: n + " C" } );
 			}
 		}
 	}
