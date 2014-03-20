@@ -60,36 +60,36 @@
 		</menubutton>
 		<button text="Menubar Button" />
 		<spacer width="100%" />
-		<list text="Select Style" id="styleList">
+		<listSelector text="Select Style" id="styleList">
 			<array>Gradient, Gradient Mobile, Windows, Default</array>
-		</list>
+		</listSelector>
 	</menubar>
 	
 	<tabview width="100%" height="100%" id="mainTabs">
 		<vbox text="List" width="100%" height="100%">
 			<hbox>
-				<list text="Select Item 1">
+				<listSelector text="Select Item 1">
 					<array>Item 1, Item 2, Item 3, Item 4, Item 5</array>
-				</list>
-				<list text="Select Item 2">
+				</listSelector>
+				<listSelector text="Select Item 2">
 					<array>Item 1, Item 2</array>
-				</list>
-				<list text="Select Item 3">
+				</listSelector>
+				<listSelector text="Select Item 3">
 					<array>Item 1, Item 2, Item 3, Item 4</array>
-				</list>
+				</listSelector>
 				<button text="Test" id="perfButton" />
 			</hbox>
 			<hbox text="List" width="100%" height="100%">
-				<listview width="50%" height="100%" id="theList">
+				<listview width="50%" height="100%" id="theList" itemRenderer="haxe.ui.toolkit.core.renderers.ComponentItemRenderer">
 					<json>
 						[
-							{"text": "Item 1", "controlId": "sendButton", "type": "button", "value": "Send", "subtext": "Sub text 1"},
+							{"text": "Item 1", "controlId": "sendButton", "componentType": "button", "componentValue": "Send", "subtext": "Sub text 1"},
 							{"text": "Item 2", "subtext": "Subtext 2"},
 							{"text": "Item 3", "subtext": "Subtext + icon", "icon": "img/fav_32.png"},
-							{"text": "Item 4 + icon + button", "icon": "img/fav_16.png", "controlId": "someAction", "type": "button", "value": "Some Action"},
-							{"text": "Item 5 + slider", "subtext": "something", "type": "slider", "value": 25},
-							{"text": "Item 6 + progress", "type": "progress", "value": 75},
-							{"text": "Item 7 + select", "type": "list", "dataSource": [
+							{"text": "Item 4 + icon + button", "icon": "img/fav_16.png", "controlId": "someAction", "componentType": "button", "componentValue": "Some Action"},
+							{"text": "Item 5 + slider", "subtext": "something", "componentType": "slider", "componentValue": 25},
+							{"text": "Item 6 + progress", "componentType": "progress", "componentValue": 75},
+							{"text": "Item 7 + select", "componentType": "list", "dataSource": [
 																			{ "text": "Option 1" },
 																			{ "text": "Option 2" },
 																			{ "text": "Option 3" },
@@ -99,7 +99,7 @@
 																			{ "text": "Option 7" },
 																			{ "text": "Option 8" }
 																		]},
-							{"text": "Item 7 + select", "type": "list", "dataSource": [
+							{"text": "Item 7 + select", "componentType": "list", "dataSource": [
 																			{ "text": "Option 1" },
 																			{ "text": "Option 2" },
 																			{ "text": "Option 3" },
@@ -109,7 +109,7 @@
 																			{ "text": "Option 7" },
 																			{ "text": "Option 8" }
 																		]},
-							{"text": "Item 6 + progress", "type": "progress", "value": 75},
+							{"text": "Item 6 + progress", "componentType": "progress", "componentValue": 75},
 							{"text": "Item 8", "subtext": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of 'de Finibus Bonorum et Malorum' (The Extremes of Good and Evil)"},
 							{"text": "Item 9"},
 							{"text": "Item 10"},
@@ -261,18 +261,18 @@
 				<button text="Busy Popup" id="showBusyPopup" />
 			</hbox>
 			<hbox>
-				<list text="Select Item 1">
+				<listSelector text="Select Item 1">
 					<array>Item 1, Item 2, Item 3, Item 4, Item 5</array>
-				</list>
-				<list text="Select Item 2">
+				</listSelector>
+				<listSelector text="Select Item 2">
 					<array>Item 1, Item 2</array>
-				</list>
-				<list text="Select Item 3">
+				</listSelector>
+				<listSelector text="Select Item 3">
 					<array>Item 1, Item 2, Item 3, Item 4</array>
-				</list>
-				<list text="Select Item 3" disabled="true">
+				</listSelector>
+				<listSelector text="Select Item 3" disabled="true">
 					<array>Item 1, Item 2, Item 3, Item 4</array>
-				</list>
+				</listSelector>
 			</hbox>
 			<hbox>
 				<date />
@@ -452,7 +452,7 @@
 			</xml>
 			
 			<grid columns="5">
-				<list text="Select Item" id="xmlTestList">
+				<listSelector text="Select Item" id="xmlTestList">
 					<xml>
 						<xml>
 							<item text="item 1" count="5" />
@@ -460,7 +460,7 @@
 							<item text="item 3" count="15"/>
 						</xml>
 					</xml>
-				</list>
+				</listSelector>
 				
 				<text text="Array (Inline)"/>
 				<text text="JSON (Inline)"/>
@@ -468,11 +468,11 @@
 				<text text="Files (Neko)"/>
 				<text text="MySQL (Neko)"/>
 
-				<list text="Select Item">
+				<listSelector text="Select Item">
 					<array>Item 1, Item 2, Item 3, Item 4</array>
-				</list>
+				</listSelector>
 
-				<list text="Select Item">
+				<listSelector text="Select Item">
 					<json>
 						[
 							{"text": "Item 1"},
@@ -481,9 +481,9 @@
 							{"text": "Item 4"}
 						]
 					</json>
-				</list>
+				</listSelector>
 				
-				<list text="Select Item">
+				<listSelector text="Select Item">
 					<xml>
 						<xml>
 							<item text="Item 1" />
@@ -492,15 +492,15 @@
 							<item text="Item 4" />
 						</xml>
 					</xml>
-				</list>
+				</listSelector>
 				
-				<list text="Select File" condition="Client.target == 'neko'">
+				<listSelector text="Select File" condition="Client.target == 'neko'">
 					<files resource="C:\temp\files" />
-				</list>
+				</listSelector>
 				
-				<list text="Select MySQL" condition="Client.target == 'neko'">
+				<listSelector text="Select MySQL" condition="Client.target == 'neko'">
 					<mysql resource="localhost:3306/haxe_db?user=root&pass=root&q=SELECT * FROM datasource1" />
-				</list>
+				</listSelector>
 			</grid>
 			
 			<grid columns="3">
@@ -508,17 +508,17 @@
 				<text text="JSON (Resource)"/>
 				<text text="XML (Resource)"/>
 
-				<list text="Select Item">
+				<listSelector text="Select Item">
 					<array resource="data/data.txt" />
-				</list>
+				</listSelector>
 
-				<list text="Select Item">
+				<listSelector text="Select Item">
 					<json resource="data/data.json" />
-				</list>
+				</listSelector>
 				
-				<list text="Select Item">
+				<listSelector text="Select Item">
 					<xml resource="data/data.xml" />
-				</list>
+				</listSelector>
 			</grid>
 			
 			<grid columns="3">

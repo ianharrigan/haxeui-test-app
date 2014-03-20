@@ -3,7 +3,7 @@
 	<!-- NMML reference: https://gist.github.com/1763850 -->
 	
 	<!-- metadata, make sure 'package' is at least 3 segments (ie. com.mycompany.myproject) -->
-	<meta title="haxeui-test-app" package="haxe.ui.test.haxeuitestapp" version="1.0.0" company="" />
+	<meta title="Haxe UI" package="haxe.ui.test.haxeuitestapp" version="1.0.0" company="" />
 	
 	<!-- output -->
 	<app main="haxe.ui.test.Main" file="haxeuitestapp" path="bin" />
@@ -22,6 +22,7 @@
 	<icon path="assets/application-default-icon.svg" />
 	<assets path="assets" rename="assets" />
 	<assets path="assets/img" rename="img" />
+	<assets path="assets/fonts" rename="fonts" />
 	
 	<assets path="assets/ui" rename="ui" exclude="*.xml|*.css" if="html5" />
 	<assets path="assets/ui" rename="ui" unless="html5" />

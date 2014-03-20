@@ -5,7 +5,7 @@ import flash.events.MouseEvent;
 import flash.events.ProgressEvent;
 import haxe.ui.toolkit.containers.TableView;
 import haxe.ui.toolkit.core.Component;
-import haxe.ui.toolkit.events.ListViewEvent;
+import haxe.ui.toolkit.core.interfaces.IItemRenderer;
 import haxe.ui.toolkit.events.MenuEvent;
 import haxe.ui.toolkit.events.UIEvent;
 import haxe.ui.toolkit.containers.Accordion;
@@ -18,7 +18,7 @@ import haxe.ui.toolkit.controls.extended.Code;
 import haxe.ui.toolkit.controls.HSlider;
 import haxe.ui.toolkit.controls.OptionBox;
 import haxe.ui.toolkit.controls.popups.Popup;
-import haxe.ui.toolkit.controls.selection.List;
+import haxe.ui.toolkit.controls.selection.ListSelector;
 import haxe.ui.toolkit.controls.Slider;
 import haxe.ui.toolkit.controls.VScroll;
 import haxe.ui.toolkit.core.Controller;
@@ -32,14 +32,14 @@ import haxe.ui.toolkit.resources.ResourceManager;
 import haxe.ui.toolkit.controls.Progress;
 import haxe.ui.toolkit.style.DefaultStyles;
 import haxe.ui.toolkit.style.StyleManager;
-import haxe.ui.toolkit.util.psuedothreads.AsyncThreadCaller;
-import haxe.ui.toolkit.util.psuedothreads.Runner;
+import haxe.ui.toolkit.util.pseudothreads.AsyncThreadCaller;
+import haxe.ui.toolkit.util.pseudothreads.Runner;
 
 class TestController extends XMLController {
 	public static var _testValue:String;
 	
 	public function new() {
-		var resourceId:String = "ui/html_test.xml";
+		var resourceId:String = "ui/test02.xml";
 		super(resourceId);
 		
 		/*
@@ -75,54 +75,57 @@ class TestController extends XMLController {
 		});
 		
 		attachEvent("showSimplePopup", MouseEvent.CLICK, function(e) {
-			PopupManager.instance.showSimple(root, "Basic poup text", "Simple Popup");
+			PopupManager.instance.showSimple("Basic poup text", "Simple Popup");
 		});
 
 		attachEvent("showConfirmPopup", MouseEvent.CLICK, function(e) {
-			PopupManager.instance.showSimple(root, "Are you sure you wish to perform this action?\n\nBad things could happen!", "Confirm Action", PopupButtonType.YES | PopupButtonType.NO, function(b) {
-				if (b == PopupButtonType.YES) {
-					PopupManager.instance.showSimple(root, "You clicked 'Yes'.", "Result");
-				} else if (b == PopupButtonType.NO) {
-					PopupManager.instance.showSimple(root, "You clicked 'No'.", "Result");
+			PopupManager.instance.showSimple("Are you sure you wish to perform this action?\n\nBad things could happen!", "Confirm Action", PopupButton.YES | PopupButton.NO, function(b) {
+				if (b == PopupButton.YES) {
+					PopupManager.instance.showSimple("You clicked 'Yes'.", "Result");
+				} else if (b == PopupButton.NO) {
+					PopupManager.instance.showSimple("You clicked 'No'.", "Result");
 				}
 			});
 		});
 
 		attachEvent("showCustomPopup", MouseEvent.CLICK, function(e) {
 			var popupController:XMLController = new XMLController("ui/customPopup.xml");
-			PopupManager.instance.showCustom(root, popupController.view, "Enter Name", PopupButtonType.CONFIRM | PopupButtonType.CANCEL, function (b) {
-				if (b == PopupButtonType.CONFIRM) {
+			PopupManager.instance.showCustom(popupController.view, "Enter Name", PopupButton.CONFIRM | PopupButton.CANCEL, function (b) {
+				if (b == PopupButton.CONFIRM) {
 					var name:String = popupController.getComponent("firstName").text + " " + popupController.getComponent("lastName").text;
-					PopupManager.instance.showSimple(root, "Hello " + name + "!!!", "Welcome!");
+					PopupManager.instance.showSimple("Hello " + name + "!!!", "Welcome!");
 				}
 			});
 		});
 
 		attachEvent("showListPopup", MouseEvent.CLICK, function(e) {
-			PopupManager.instance.showList(root, ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"], "Select Item", 1, true, function (item:ListViewItem) {
-				PopupManager.instance.showSimple(root, "You selected '" + item.text + "'", "Selection");
+			PopupManager.instance.showList(["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"], 1, "Select Item", {modal: true}, function (item:Dynamic) {
+				PopupManager.instance.showSimple("You selected '" + item.text + "'", "Selection");
 			});
 		});
 
 		attachEvent("showCalendarPopup", MouseEvent.CLICK, function(e) {
-			PopupManager.instance.showCalendar(root, "Select Date");
+			PopupManager.instance.showCalendar("Select Date");
 		});
 
 		attachEvent("showBusyPopup", MouseEvent.CLICK, function(e) {
-			PopupManager.instance.showBusy(root, "Busy, please wait", 3000, "Waiting");
+			PopupManager.instance.showBusy("Busy, please wait", 3000, "Waiting");
 		});
 		
+		/*
 		attachEvent("theList", ListViewEvent.COMPONENT_EVENT, function (e:ListViewEvent) {
 			if (Std.is(e.component, Button)) {
-				PopupManager.instance.showSimple(root, "You clicked: " + e.component.text + "!", "Alert!");
+				PopupManager.instance.showSimple("You clicked: " + e.component.text + "!", "Alert!");
 			} else if (Std.is(e.component, HSlider)) {
 				e.item.subtext = "Slider value: " + Std.int(cast(e.component, HSlider).pos);
 			}
 		});
+		*/
 		
 		if (resourceId == "ui/test02.xml") {
-			attachEvent("styleList", Event.CHANGE, function(e) {
-				var style:String = getComponentAs("styleList", List).selectedItems[0].text.toLowerCase();
+			attachEvent("styleList", UIEvent.CHANGE, function(e) {
+				var style:String = getComponentAs("styleList", ListSelector).selectedItems[0].data.text.toLowerCase();
+				trace(style);
 				RootManager.instance.destroyAllRoots();
 				//Toolkit.defaultStyle = style;
 				StyleManager.instance.clear();
@@ -209,7 +212,7 @@ class TestController extends XMLController {
 			}
 			
 			{
-				var dropDownTrans:String = Toolkit.getTransitionForClass(List);
+				var dropDownTrans:String = Toolkit.getTransitionForClass(ListSelector);
 				if (dropDownTrans == "none") {
 					getComponentAs("dropDownTransNone", OptionBox).selected = true;
 				} else if (dropDownTrans == "fade") {
@@ -220,17 +223,17 @@ class TestController extends XMLController {
 				
 				attachEvent("dropDownTransNone", Event.CHANGE, function(e) {
 					if (getComponentAs("dropDownTransNone", OptionBox).selected == true) {
-						Toolkit.setTransitionForClass(List, "none");
+						Toolkit.setTransitionForClass(ListSelector, "none");
 					}
 				});
 				attachEvent("dropDownTransFade", Event.CHANGE, function(e) {
 					if (getComponentAs("dropDownTransFade", OptionBox).selected == true) {
-						Toolkit.setTransitionForClass(List, "fade");
+						Toolkit.setTransitionForClass(ListSelector, "fade");
 					}
 				});
 				attachEvent("dropDownTransSlide", Event.CHANGE, function(e) {
 					if (getComponentAs("dropDownTransSlide", OptionBox).selected == true) {
-						Toolkit.setTransitionForClass(List, "slide");
+						Toolkit.setTransitionForClass(ListSelector, "slide");
 					}
 				});
 			}
@@ -269,11 +272,11 @@ class TestController extends XMLController {
 			}
 			
 			{
-				_callers = new Map<ListViewItem, AsyncThreadCaller>();
+				_callers = new Map<IItemRenderer, AsyncThreadCaller>();
 				attachEvent("createRunner", MouseEvent.CLICK, _createRunner);
-				attachEvent("runnerList", ListViewEvent.COMPONENT_EVENT, function(e:ListViewEvent) {
+				attachEvent("runnerList", UIEvent.COMPONENT_EVENT, function(e:UIEvent) {
 					var list:ListView = getComponentAs("runnerList", ListView);
-					var listItem:ListViewItem = e.item;
+					var listItem:IItemRenderer = cast e.component;
 					var caller:AsyncThreadCaller = cast(_callers.get(listItem) , AsyncThreadCaller);
 					caller.cancel();
 					var index:Int = list.getItemIndex(listItem);
@@ -319,12 +322,12 @@ class TestController extends XMLController {
 		}
 	}
 	
-	private var _callers:Map<ListViewItem, AsyncThreadCaller>;
+	private var _callers:Map<IItemRenderer, AsyncThreadCaller>;
 	private function _createRunner(e:Event):Void {
 		var list:ListView = getComponentAs("runnerList", ListView);
 		var name:String = "Runner_" + list.listSize;
 		list.dataSource.add( { text: name + ": 0", type: "button", value: "Cancel"  } );
-		var item:ListViewItem = list.getItem(list.listSize - 1);
+		var item:IItemRenderer = list.getItem(list.listSize - 1);
 		
 		var runner:DemoRunner = new DemoRunner(name, item, Std.parseFloat(getComponent("runnnerTimeshare").text));
 		var caller:AsyncThreadCaller = new AsyncThreadCaller(runner);
@@ -343,8 +346,8 @@ class TestController extends XMLController {
 private class DemoRunner extends Runner {
 	public var counter:Int = 0;
 	public var name:String;
-	public var listItem:ListViewItem;
-	public function new(name:String, listItem:ListViewItem, timeshare:Float = .1):Void {
+	public var listItem:IItemRenderer;
+	public function new(name:String, listItem:IItemRenderer, timeshare:Float = .1):Void {
 		super();
 		this.name = name;
 		this.listItem = listItem;
