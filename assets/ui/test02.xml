@@ -275,8 +275,8 @@
 				</listSelector>
 			</hbox>
 			<hbox>
-				<date />
-				<date method="popup" />
+				<dateSelector />
+				<dateSelector method="popup" />
 			</hbox>
 		</vbox>
 		
@@ -526,9 +526,9 @@
 				<text text="JSON (Reference)"/>
 				<text text="XML (Reference)"/>
 
-				<list text="Select Item" dataSource="arrayDS" />
-				<list text="Select Item" dataSource="jsonDS" />
-				<list text="Select Item" dataSource="xmlDS" />
+				<listSelector text="Select Item" dataSource="arrayDS" />
+				<listSelector text="Select Item" dataSource="jsonDS" />
+				<listSelector text="Select Item" dataSource="xmlDS" />
 			</grid>
 			
 			<grid columns="5">
@@ -538,11 +538,11 @@
 				<text text="Files (Neko)"/>
 				<text text="MySQL (Neko)"/>
 
-				<list text="Select Item" dataSource="array://data/data.txt" />
-				<list text="Select Item" dataSource="json://data/data.json" />
-				<list text="Select Item" dataSource="xml://data/data.xml" />
-				<list text="Select File" dataSource="files://C:/temp/files" condition="Client.target == 'neko'" />
-				<list text="Select MySQL" dataSource="mysql://localhost:3306/haxe_db?user=root&pass=root&q=SELECT * FROM datasource1" condition="Client.target == 'neko'" />
+				<listSelector text="Select Item" dataSource="array://data/data.txt" />
+				<listSelector text="Select Item" dataSource="json://data/data.json" />
+				<listSelector text="Select Item" dataSource="xml://data/data.xml" />
+				<listSelector text="Select File" dataSource="files://C:/temp/files" condition="Client.target == 'neko'" />
+				<listSelector text="Select MySQL" dataSource="mysql://localhost:3306/haxe_db?user=root&pass=root&q=SELECT * FROM datasource1" condition="Client.target == 'neko'" />
 
 			</grid>
 		</vbox>

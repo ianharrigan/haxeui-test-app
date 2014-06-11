@@ -1,9 +1,9 @@
 package haxe.ui.test;
 
 import openfl.Assets;
-import flash.display.Bitmap;
-import flash.display.Sprite;
-import flash.events.MouseEvent;
+import openfl.display.Bitmap;
+import openfl.display.Sprite;
+import openfl.events.MouseEvent;
 
 class InteractiveBackground extends Sprite {
 	public function new() {

@@ -1,8 +1,9 @@
 package haxe.ui.test;
 
-import flash.events.Event;
-import flash.events.MouseEvent;
-import flash.events.ProgressEvent;
+import openfl.events.Event;
+import openfl.events.MouseEvent;
+import openfl.events.ProgressEvent;
+import haxe.ui.richtext.Code;
 import haxe.ui.toolkit.containers.TableView;
 import haxe.ui.toolkit.core.Component;
 import haxe.ui.toolkit.core.interfaces.IItemRenderer;
@@ -14,7 +15,6 @@ import haxe.ui.toolkit.containers.Stack;
 import haxe.ui.toolkit.containers.TabView;
 import haxe.ui.toolkit.controls.Button;
 import haxe.ui.toolkit.controls.CheckBox;
-import haxe.ui.toolkit.controls.extended.Code;
 import haxe.ui.toolkit.controls.HSlider;
 import haxe.ui.toolkit.controls.OptionBox;
 import haxe.ui.toolkit.controls.popups.Popup;

@@ -17,6 +17,7 @@
 	<haxelib name="openfl" />
 	<haxelib name="actuate" />
 	<haxelib name="haxeui" />
+	<haxelib name="haxeui-rich-text" />
 	
 	<!-- assets -->
 	<icon path="assets/application-default-icon.svg" />
