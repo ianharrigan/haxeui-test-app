@@ -16,24 +16,31 @@
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
+    <class path="C:\Servers\Haxe\haxe\lib\openfl\2,0,0" />
+    <class path="C:\Servers\Haxe\haxe\lib\actuate\1,7,5" />
+    <class path="C:\Servers\Haxe\haxe\lib\haxeui\1,4,5" />
+    <class path="C:\Servers\Haxe\haxe\lib\svg\1,0,8" />
+    <class path="C:\Servers\Haxe\haxe\lib\hscript\2,0,1" />
+    <class path="C:\Servers\Haxe\haxe\lib\haxeui-rich-text\0,1,1" />
     <class path="src" />
-    <class path="X:\Haxe\haxe\lib\haxeui\1,2,0\styles" />
-    <class path="bin\html5\haxe" />
+    <class path="C:\Servers\Haxe\haxe\lib\openfl\2,0,0\backends\flash" />
+    <class path="C:\Servers\Haxe\haxe\lib\haxeui\1,4,5\styles" />
+    <class path="C:\Servers\Haxe\haxe\lib\haxeui\1,4,5\fonts" />
+    <class path="C:\Servers\Haxe\haxe\lib\haxeui-rich-text\0,1,1\assets" />
+    <class path="bin\flash\haxe" />
   </classpaths>
   <!-- Build options -->
   <build>
-    <option directives="tools=1.2.5&#xA;display&#xA;html5&#xA;web&#xA;html5&#xA;html" />
+    <option directives="haxeui-rich-text=0.1.1&#xA;actuate=1.7.5&#xA;openfl=2.0.0&#xA;hscript=2.0.1&#xA;haxeui=1.4.5&#xA;svg=1.0.8&#xA;tools=1.5.6&#xA;openfl-flash&#xA;display&#xA;web" />
     <option flashStrict="False" />
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />
     <option enabledebug="True" />
-    <option additional="--no-output&#xA;-dce std&#xA;-resource assets/data/code.txt@data/code.txt&#xA;-resource assets/data/data.json@data/data.json&#xA;-resource assets/data/data.txt@data/data.txt&#xA;-resource assets/data/data.xml@data/data.xml&#xA;-resource assets/data/rtf.txt@data/rtf.txt&#xA;-resource assets/ui/customPopup.xml@ui/customPopup.xml&#xA;-resource assets/ui/import01.xml@ui/import01.xml&#xA;-resource assets/ui/import02.xml@ui/import02.xml&#xA;-resource assets/ui/import03.xml@ui/import03.xml&#xA;-resource assets/ui/importedDataSource.xml@ui/importedDataSource.xml&#xA;-resource assets/ui/main.xml@ui/main.xml&#xA;-resource assets/ui/menu.xml@ui/menu.xml&#xA;-resource assets/ui/temp.xml@ui/temp.xml&#xA;-resource assets/ui/test.css@ui/test.css&#xA;-resource assets/ui/test01.xml@ui/test01.xml&#xA;-resource assets/ui/test02.xml@ui/test02.xml&#xA;-resource assets/ui/test03.xml@ui/test03.xml&#xA;-resource assets/ui/html_test.xml@ui/html_test.xml&#xA;--remap flash:flash" />
+    <option additional="--no-output&#xA;-dce std&#xA;-resource assets/data/code.txt@data/code.txt&#xA;-resource assets/data/data.json@data/data.json&#xA;-resource assets/data/data.txt@data/data.txt&#xA;-resource assets/data/data.xml@data/data.xml&#xA;-resource assets/data/rtf.txt@data/rtf.txt&#xA;-resource assets/ui/customPopup.xml@ui/customPopup.xml&#xA;-resource assets/ui/import01.xml@ui/import01.xml&#xA;-resource assets/ui/import02.xml@ui/import02.xml&#xA;-resource assets/ui/import03.xml@ui/import03.xml&#xA;-resource assets/ui/importedDataSource.xml@ui/importedDataSource.xml&#xA;-resource assets/ui/main.xml@ui/main.xml&#xA;-resource assets/ui/menu.xml@ui/menu.xml&#xA;-resource assets/ui/temp.xml@ui/temp.xml&#xA;-resource assets/ui/test.css@ui/test.css&#xA;-resource assets/ui/test01.xml@ui/test01.xml&#xA;-resource assets/ui/test02.xml@ui/test02.xml&#xA;-resource assets/ui/test03.xml@ui/test03.xml&#xA;-resource assets/ui/html_test.xml@ui/html_test.xml&#xA;-swf-version 11.2" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
-    <library name="openfl" />
-    <library name="actuate" />
-    <library name="haxeui" />
+    <!-- example: <library name="..." /> -->
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
