@@ -131,21 +131,21 @@ class TestController extends XMLController {
 				StyleManager.instance.clear();
 				ResourceManager.instance.reset();
 				if (style == "gradient") {
-					Macros.addStyleSheet("styles/gradient/gradient.css");
+					Macros.addStyleSheet("assets/styles/gradient/gradient.css");
 				} else if (style == "gradient mobile") {
-					Macros.addStyleSheet("styles/gradient/gradient_mobile.css");				
+					Macros.addStyleSheet("assets/styles/gradient/gradient_mobile.css");				
 				} else if (style == "windows") {
-					Macros.addStyleSheet("styles/windows/windows.css");
-					Macros.addStyleSheet("styles/windows/buttons.css");
-					Macros.addStyleSheet("styles/windows/tabs.css");
-					Macros.addStyleSheet("styles/windows/listview.css");
-					Macros.addStyleSheet("styles/windows/scrolls.css");
-					Macros.addStyleSheet("styles/windows/sliders.css");
-					Macros.addStyleSheet("styles/windows/accordion.css");
-					Macros.addStyleSheet("styles/windows/rtf.css");
-					Macros.addStyleSheet("styles/windows/calendar.css");
-					Macros.addStyleSheet("styles/windows/popups.css");
-					Macros.addStyleSheet("styles/windows/menus.css");
+					Macros.addStyleSheet("assets/styles/windows/windows.css");
+					Macros.addStyleSheet("assets/styles/windows/buttons.css");
+					Macros.addStyleSheet("assets/styles/windows/tabs.css");
+					Macros.addStyleSheet("assets/styles/windows/listview.css");
+					Macros.addStyleSheet("assets/styles/windows/scrolls.css");
+					Macros.addStyleSheet("assets/styles/windows/sliders.css");
+					Macros.addStyleSheet("assets/styles/windows/accordion.css");
+					Macros.addStyleSheet("assets/styles/windows/rtf.css");
+					Macros.addStyleSheet("assets/styles/windows/calendar.css");
+					Macros.addStyleSheet("assets/styles/windows/popups.css");
+					Macros.addStyleSheet("assets/styles/windows/menus.css");
 				} else if (style == "default") {
 					StyleManager.instance.addStyles(new DefaultStyles());
 				}

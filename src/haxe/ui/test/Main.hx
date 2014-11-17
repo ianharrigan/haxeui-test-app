@@ -13,7 +13,7 @@ import haxe.ui.toolkit.themes.GradientTheme;
 
 class Main {
 	public static function main() {
-		//Toolkit.theme = new GradientTheme();
+		Toolkit.theme = new GradientTheme();
 		Toolkit.setTransitionForClass(Stack, "none");
 		Toolkit.init();
 		Toolkit.openFullscreen(function(root:Root) {
