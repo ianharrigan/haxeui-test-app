@@ -1,3 +1,5 @@
+*Note: this app is no longer maintained, and as a result there are lots of things that with either not work or will not work correctly*
+
 Test application for <a href="https://github.com/ianharrigan/haxeui">HaxeUI</a>
 ================================
 
