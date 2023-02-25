@@ -1,3 +1,8 @@
+NOTE: This is a legacy unmaintained version of HaxeUI
+================================
+If you are writing a new application, or are considering moving a legacy application across to the newer version, check out the repository here: https://github.com/haxeui/haxeui-core
+
+
 *Note: this app is no longer maintained, and as a result there are lots of things that with either not work or will not work correctly*
 
 Test application for <a href="https://github.com/ianharrigan/haxeui">HaxeUI</a>
